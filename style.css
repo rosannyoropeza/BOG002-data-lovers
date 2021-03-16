@@ -1,0 +1,35 @@
+body{
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+}
+
+/* menu inicial */
+
+header{
+    background: #63B330;
+    display: block;
+}
+
+header .menu{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+header .menu .logo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+header .menu div{
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+header .menu div a{
+    text-decoration: none;
+    color: black;
+}
