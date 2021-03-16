@@ -16,15 +16,15 @@ header .menu{
     padding: 20px;
 }
 header .menu .logo{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
 }
 
 header .menu div{
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
+    width: 150vw;
+    height: 150px;
+    /* margin-top: 10px; */
     display: flex;
     justify-content: space-evenly;
     text-align: center;
@@ -32,6 +32,10 @@ header .menu div{
 header .menu div a{
     text-decoration: none;
     color: black;
+}
+header .menu div a img{
+    width: 100px;
+    height: 100px;
 }
 
 /* footes */
