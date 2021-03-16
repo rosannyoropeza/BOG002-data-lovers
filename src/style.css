@@ -33,3 +33,8 @@ header .menu div a{
     text-decoration: none;
     color: black;
 }
+
+/* footes */
+footer{
+    background: #0068AF;
+}
