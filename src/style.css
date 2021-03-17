@@ -43,12 +43,14 @@ header .menu div{
     text-align: center;
 }
 header .menu div a{
-    
     color: black;
 }
 header .menu div a img{
     width: 50px;
     height: 50px;
+}
+header .menu div:hover{
+    filter: invert(100%);
 }
 header .menu div a p{
     font-size: 12px;
@@ -71,6 +73,16 @@ header .menu div a p{
     font-size: 15px;
     text-align: justify;
     font-family: 'Poppins', sans-serif;
+}
+#contenido #carrusel{
+    display: flex;
+    justify-content: space-evenly;
+    overflow-x: auto;
+}
+#contenido #carrusel img{
+    width: 200px;
+    height: 150px;
+    margin: 10px;
 }
 /* footes */
 footer{
