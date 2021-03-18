@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     text-decoration: none;
 }
 body{
@@ -74,15 +74,15 @@ header .menu div a p{
     text-align: justify;
     font-family: 'Poppins', sans-serif;
 }
+/* contenido del carrusel---> lo puedes borrar */
 #contenido #carrusel{
     display: flex;
-    justify-content: space-evenly;
-    overflow-x: auto;
+    overflow-x: scroll;
 }
 #contenido #carrusel img{
-    width: 200px;
-    height: 150px;
-    margin: 10px;
+    width: 400px;
+    height: 250px;
+    margin: 5px 10px;
 }
 /* footes */
 footer{
