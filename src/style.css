@@ -1,6 +1,15 @@
-body{
-    font-family: 'Oswald', sans-serif;
+* {
     margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    text-decoration: none;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    height: 100vh;
 }
 
 /* menu inicial */
@@ -8,34 +17,72 @@ body{
 header{
     background: #63B330;
     display: block;
+    width: 100vw;
+    height: 85px;
 }
 
 header .menu{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
+    
 }
 header .menu .logo{
-    width: 150px;
-    height: 150px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-top: 5px;
 }
 
 header .menu div{
-    width: 150vw;
-    height: 150px;
-    /* margin-top: 10px; */
+    /* width: 100vw;
+    height: 100px;
+    margin-top: 10px; */
     display: flex;
     justify-content: space-evenly;
     text-align: center;
 }
 header .menu div a{
-    text-decoration: none;
     color: black;
 }
 header .menu div a img{
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
+}
+header .menu div:hover{
+    filter: invert(100%);
+}
+header .menu div a p{
+    font-size: 12px;
+    margin: 0;
+}
+/* contenedor video y texto */
+#contenido {
+    /*margin: 20px;*/
+    box-sizing: content-box;
+}
+#contenido .video{
+    width: 100%;
+    height: 170px;
+}
+#contenido h1{
+    text-align: center;
+}
+#contenido p{
+    font-size: 15px;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* slider */
+#conteiner slider{
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;/*PARA NO MOSTRAR LAS IMAGENES*/
+    box-shadow: 0 0 0 10px #fff,
+                0 15px 50px;
+    position: absolute;
 }
 
 @keyframes mymove {
@@ -64,33 +111,23 @@ header .menu div a img{
     100%{ margin-left:-700%;}
 }
 
-/* slider */
-#conteiner slider{
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    overflow: hidden;/*PARA NO MOSTRAR LAS IMAGENES*/
-    box-shadow: 0 0 0 10px #fff,
-                0 15px 50px;
-    position: absolute;
-}
-
 #slider{
     display:flex;
     width:800%;
     height:400px;
-    animation: mymove 50s infinite;
+    /*animation: mymove 50s infinite;*/
 }
 
 #slider section{
-    width: 100%;
+    width: 100vw;
+
 }
 .slider_img{
     display:block;
     width:100%;
     height: 100%;
     object-fit: cover;/*PARA QUE LA IMAGEN NO SE DISTORCIONE*/
-    /*margin-left:-100%;*/
+    margin-left:-100%;*
 }
 
 .slider_btn{
@@ -122,5 +159,18 @@ header .menu div a img{
 
 /* footes */
 footer{
+    display: flex;
+    justify-content: center;
     background: #0068AF;
+    color: white;
+}
+footer .redes{
+    fill: white;
+    width: 48px;
+    height: 48px;
+    margin-top: 10px;
+}
+footer p{
+    font-size: 12px;
+    text-align: center;
 }
