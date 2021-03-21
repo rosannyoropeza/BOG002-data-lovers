@@ -10,6 +10,7 @@ body{
     justify-content: space-between;
     font-family: 'Oswald', sans-serif;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 /* menu inicial */
@@ -82,10 +83,21 @@ header .menu div a p{
     overflow: hidden;/*PARA NO MOSTRAR LAS IMAGENES*/
     box-shadow: 0 0 0 10px #fff,
                 0 15px 50px;
-    position: absolute;
+    
+}
+#conteiner_slider{
+    position: relative;
+}
+#slider{
+    display:flex;
+    width:800%;
+    height:400px;
+    /*animation: mymove 50s infinite;*/
+    margin-left:-100%;
+    transform: line;
 }
 
-@keyframes mymove {
+/*@keyframes mymove {
     0%{ margin-left:0%;}
     10%{ margin-left:0%;}
 
@@ -109,14 +121,7 @@ header .menu div a p{
 
     92%{ margin-left: -700%;}
     100%{ margin-left:-700%;}
-}
-
-#slider{
-    display:flex;
-    width:800%;
-    height:400px;
-    /*animation: mymove 50s infinite;*/
-}
+} */
 
 #slider section{
     width: 100vw;
@@ -126,12 +131,12 @@ header .menu div a p{
     display:block;
     width:100%;
     height: 100%;
+    
     object-fit: cover;/*PARA QUE LA IMAGEN NO SE DISTORCIONE*/
-    margin-left:-100%;*
 }
 
 .slider_btn{
-    position: relative;
+    position: absolute;
     width: 40px;
     height: 40px;
     background: rgba(255,255,255,0.7);
@@ -143,6 +148,7 @@ header .menu div a p{
     text-align:center;
     border-radius: 50%;
     cursor: pointer; 
+    z-index: 9999;
 }
 
 .slider_btn:hover{
@@ -151,10 +157,12 @@ header .menu div a p{
 
 .slider_btn_left{
     left:10px;
+    float: left;
 }
 
 .slider_btn_right{
     right: 10px;
+    float: right;
 }
 
 /* footes */

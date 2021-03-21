@@ -16,25 +16,25 @@
       <nav class="menu">
         <img src="./assets/logo-rio-2016.png" alt="logo olimpicos Rio 2016" class="logo">
         <div>
-          <a href="#">
+          <a href="index.html">
             <img src="./assets/inicio.svg" alt="icono inicio" class="inicio">
             <p>INICIO</p>
           </a>
         </div>
         <div>
-          <a href="#">
+          <a href="deporte.html">
             <img src="./assets/deporte.svg" alt="icono deportes" class="deportes">
             <p>DEPORTES</p>
           </a>
         </div>
         <div>
-          <a href="#">
+          <a href="atletas.html">
             <img src="./assets/atleta.svg" alt="icono atletas" class="atletas">
             <p>ATLETAS</p>
           </a>
         </div>
         <div>
-          <a href="#">
+          <a href="estadisticas.html">
             <img src="./assets/grafico-de-barras.svg" alt="">
             <p>ESTADISTICAS</p>
           </a>
@@ -60,36 +60,36 @@
       
         <div id="conteiner_slider">
           <div class="slider" id="slider">
-            <section>
-              <img src="./assets/foto1.jpg" alt="" class="slider_img">
+            <section class="slider_section">
+              <img src="./assets/foto1.jpg" id="1" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section">
               <img src="./assets/foto2.jpg" alt="" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section">
               <img src="./assets/foto3.jpg" alt="" class="slider_img">
             </section>
-            <section> 
+            <section class="slider_section"> 
               <img src="./assets/foto4.jpg" alt="" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section">
               <img src="./assets/foto5.jpg" alt="" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section">
               <img src="./assets/foto6.jpg" alt="" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section" class="slider_section">
               <img src="./assets/foto7.jpg" alt="" class="slider_img">
             </section>
-            <section>
+            <section class="slider_section">
               <img src="./assets/foto8.jpg" alt="" class="slider_img">
             </section>
           </div>
-          <div class="slider_btn slider_btn_right" id="btn_left">&#62</div>
-          <div class="slider_btn slider_btn_left"  id="btn_right">&#60</div>
+          <div><button class="slider_btn slider_btn_left"  onclick="btn_left()">&#60</button></div>
+          <div><button class="slider_btn slider_btn_right" onclick="btn_right()">&#62</button></div>
       </div>
     </section>
-
+  
     <!-- redes sociales y creditos -->
     <footer>
       <div>
@@ -109,5 +109,10 @@
       </div>
     </footer>
     <script src="main.js" type="module"></script>
+    <script src="slider.js"></script>
+    <script>
+
+
+    </script>
   </body>
 </html>
