@@ -59,7 +59,7 @@ header .menu div a p{
 /* contenedor video y texto */
 
 #contenido {
-    margin: 20px;
+    /* margin: 20px; */
     box-sizing: content-box;
 }
 #contenido .video{
@@ -73,6 +73,7 @@ header .menu div a p{
     font-size: 15px;
     text-align: justify;
     font-family: 'Poppins', sans-serif;
+    margin: 20px;
 }
 /* contenido del carrusel---> lo puedes borrar */
 #contenido #carrusel{
