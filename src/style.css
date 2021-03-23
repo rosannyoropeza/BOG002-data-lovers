@@ -10,6 +10,7 @@ body{
     justify-content: space-between;
     font-family: 'Oswald', sans-serif;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 /* menu inicial */
@@ -57,9 +58,8 @@ header .menu div a p{
     margin: 0;
 }
 /* contenedor video y texto */
-
 #contenido {
-    /* margin: 20px; */
+    /*margin: 20px;*/
     box-sizing: content-box;
 }
 #contenido .video{
@@ -75,16 +75,97 @@ header .menu div a p{
     font-family: 'Poppins', sans-serif;
     margin: 20px;
 }
-/* contenido del carrusel---> lo puedes borrar */
-#contenido #carrusel{
-    display: flex;
-    overflow-x: scroll;
+
+/* slider */
+#conteiner slider{
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;/*PARA NO MOSTRAR LAS IMAGENES*/
+    box-shadow: 0 0 0 10px #fff,
+                0 15px 50px;
+    
 }
-#contenido #carrusel img{
-    width: 400px;
-    height: 250px;
-    margin: 5px 10px;
+#conteiner_slider{
+    position: relative;
 }
+#slider{
+    display:flex;
+    width:800%;
+    height:400px;
+    /*animation: mymove 50s infinite;*/
+    margin-left:-100%;
+    transform: line;
+}
+
+/*@keyframes mymove {
+    0%{ margin-left:0%;}
+    10%{ margin-left:0%;}
+
+    12%{ margin-left: -100%;}
+    24%{ margin-left: -100%;}
+
+    26%{ margin-left: -200%;}
+    38%{ margin-left: -200%;}
+
+    40%{ margin-left:-300%;}
+    47%{ margin-left:-300%;}
+
+    50%{ margin-left: -400%;}
+    62%{ margin-left:-400%;}
+
+    64%{ margin-left: -500%;}
+    76%{ margin-left:-500%;}
+
+    78%{ margin-left: -600%;}
+    90%{ margin-left:-600%;}
+
+    92%{ margin-left: -700%;}
+    100%{ margin-left:-700%;}
+} */
+
+#slider section{
+    width: 100vw;
+
+}
+.slider_img{
+    display:block;
+    width:100%;
+    height: 100%;
+    
+    object-fit: cover;/*PARA QUE LA IMAGEN NO SE DISTORCIONE*/
+}
+
+.slider_btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.7);
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: monospace;
+    text-align:center;
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 9999;
+}
+
+.slider_btn:hover{
+    background: #fff;
+}
+
+.slider_btn_left{
+    left:10px;
+    float: left;
+}
+
+.slider_btn_right{
+    right: 10px;
+    float: right;
+}
+
 /* footes */
 footer{
     display: flex;
