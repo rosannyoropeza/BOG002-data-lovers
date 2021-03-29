@@ -1,9 +1,22 @@
-//estas funciones son de ejemplo
+export function listaDeportes(dataOriginal){
+  let newSport = [];
+  dataOriginal.forEach(function (deporte) {
+    if (!newSport.includes(deporte.sport)) {
+      newSport.push(deporte.sport);
+    }
+  });
+  return newSport
+}
 
-/*export const example = () => {
-  return 'example';
-};*/
+
+// export const data = {
+//   deporte:(nombreDeporte) => {
+//     let resultado = listaDeportes().filter(word => word === nombreDeporte)
+//     console.log('vengo de data', resultado)
+//   }
+// }
 // import data  from './data/athletes/atletasImg.js';
+
 
 // export const data= {
 //   deportes:function(sport){

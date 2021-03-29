@@ -5,12 +5,12 @@
     text-decoration: none;
 }
 body{
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
+    justify-content: space-between;
     font-family: 'Oswald', sans-serif;
-    /* height: 100vh;
-    overflow-x: hidden;*/
+    height: 100vh;
+    overflow-x: hidden;
 } 
 
 /* menu inicial */
@@ -251,4 +251,17 @@ main section .search-evento #select-eventos{
     border-radius:5%;
     cursor: pointer;
 }
-
+#logosDeportes{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-gap: 14px;
+}
+.tipoDeporte img{
+    width: 100%;
+}
+.tipoDeporte h3{
+    word-break: break-word;
+    text-align: center;
+}
