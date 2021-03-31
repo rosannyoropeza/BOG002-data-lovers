@@ -22,6 +22,8 @@ export function listaDeportes(dataOriginal){
 export function filterData(data,valor){
   return data.filter((deporte)=>deporte.sport===valor)
 }
+
+
 // funcion para filtrar deporte.
 // export function filtradoDeportistas(dataOriginal){
 //   const deporteFiltrado= dataOriginal.filter(function(word){

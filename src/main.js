@@ -32,20 +32,41 @@ function pintarDeportes(){
 let buscarDeporte= document.getElementById('search-btn')
 buscarDeporte.addEventListener('click',function(){
     const nombreDeporte = document.getElementById('search').value
-    //Esconder iconos
-    const logosDeportes = document.getElementById("logosDeportes");
-    logosDeportes.classList.remove('grid')
+    //Esconder iconos DE LOGOS
+    const logosDeportes = document.getElementById("logosDeportes")
+    const eliminarDeportistas = document.getElementById("listaDeportistas")
+
     logosDeportes.classList.add('hide')
+    eliminarDeportistas.classList.remove('hide')
     // Filtrado de datos
     const deporteFiltrado= filterData(data,nombreDeporte)
-    console.log(deporteFiltrado)
     const listaDeportistas=document.getElementById('listaDeportistas');
     deporteFiltrado.forEach((nombre)=> {
-        console.log(`${nombre.name} - ${nombre.event}`)
         const lista=document.createElement('p')
         const texto=document.createTextNode(`${nombre.name} - ${nombre.event}`)
         lista.appendChild(texto)
         listaDeportistas.insertAdjacentElement('beforeend',lista)
+    })
+
+    //funcion para traer eventos y crear option del select
+
+    const eventosFiltrados=filterData(data,nombreDeporte)
+    const selectorEventos=document.getElementById("select-eventos")
+    let arrayEventos=[]
+    eventosFiltrados.forEach((evento)=>{
+        if(!arrayEventos.includes(evento.event)){
+            arrayEventos.push(evento.event)
+        
+        }
+        
+    })
+    console.log(arrayEventos)
+    arrayEventos.forEach((superFiltrado)=>{
+        const opciones=document.createElement('option')
+        const eventos=document.createTextNode(`${superFiltrado}`)
+
+        opciones.appendChild(eventos)
+        selectorEventos.insertAdjacentElement('beforeend',opciones)
     })
     // console.log('aqui estoy',texto)
     // lista.appendChild(texto)
