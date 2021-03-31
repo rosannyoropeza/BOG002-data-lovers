@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {Array} dataOriginal 
+ * @returns {Array}
+ */
 export function listaDeportes(dataOriginal){
   let newSport = [];
   dataOriginal.forEach(function (deporte) {
@@ -7,6 +12,27 @@ export function listaDeportes(dataOriginal){
   });
   return newSport
 }
+
+/**
+ * 
+ * @param {Array} data 
+ * @param {String} valor 
+ * @returns {Array}
+ */
+export function filterData(data,valor){
+  return data.filter((deporte)=>deporte.sport===valor)
+}
+// funcion para filtrar deporte.
+// export function filtradoDeportistas(dataOriginal){
+//   const deporteFiltrado= dataOriginal.filter(function(word){
+//     if(word.sport===nombreDeporte){
+    
+//       console.log(word.name, word.team)
+         
+//     } 
+//   })
+//   return deporteFiltrado
+// }
 
 
 // export const data = {

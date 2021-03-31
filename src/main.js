@@ -4,7 +4,8 @@
 //import banderas from './data/banderas.json';
 // import slider from './slider'
 import data from "./data/athletes/atletasImg.js";
-import {listaDeportes} from "./data.js";
+import {listaDeportes,filterData} from "./data.js";
+
 function principal() {
     pintarDeportes()
 }
@@ -31,18 +32,23 @@ function pintarDeportes(){
 let buscarDeporte= document.getElementById('search-btn')
 buscarDeporte.addEventListener('click',function(){
     const nombreDeporte = document.getElementById('search').value
-    console.log(data.sport)
-    data.forEach(function (element){
-        if(nombreDeporte===element.sport){
-            console.log('soy element tennis',element)
-        }
+    //Esconder iconos
+    const logosDeportes = document.getElementById("logosDeportes");
+    logosDeportes.classList.remove('grid')
+    logosDeportes.classList.add('hide')
+    // Filtrado de datos
+    const deporteFiltrado= filterData(data,nombreDeporte)
+    console.log(deporteFiltrado)
+    const listaDeportistas=document.getElementById('listaDeportistas');
+    deporteFiltrado.forEach((nombre)=> {
+        console.log(`${nombre.name} - ${nombre.event}`)
+        const lista=document.createElement('p')
+        const texto=document.createTextNode(`${nombre.name} - ${nombre.event}`)
+        lista.appendChild(texto)
+        listaDeportistas.insertAdjacentElement('beforeend',lista)
     })
-
-    
-    // let lista=listaDeportes(data)
-    // console.log('lista',lista)
-    // let resultado=lista.filter(word=>word===nombreDeporte)
-    // console.log('soy resultado',resultado)
+    // console.log('aqui estoy',texto)
+    // lista.appendChild(texto)
 })
 
 

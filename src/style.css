@@ -265,3 +265,6 @@ main section .search-evento #select-eventos{
     word-break: break-word;
     text-align: center;
 }
+.hide{
+    display: none;
+}
