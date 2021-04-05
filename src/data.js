@@ -23,6 +23,43 @@ export function filterData(data,valor){
   return data.filter((deporte)=>deporte.sport===valor)
 }
 
+/**
+ * 
+ * * 
+ * @param {Array} eventosFiltrados//Recibe un array de eventos filtrados por deportes
+ * @returns {Array}
+ */
+//funcion para traer eventos y crear option del select
+export function listaEventos(eventosFiltrados){
+  let arrayEventos=[]
+  eventosFiltrados.forEach((evento)=>{
+  if(!arrayEventos.includes(evento.event)){
+      arrayEventos.push(evento.event)
+      }
+  })
+  return arrayEventos
+}
+
+/**
+ * 
+ * @param {Array} data 
+ * @param {String} valor 
+ * @returns {Array}
+ */
+ export function filterEvento(data,valor){
+  return data.filter((evento)=>evento.event===valor)
+}
+
+
+
+
+
+
+export function banderas(){
+
+}
+
+
 
 // funcion para filtrar deporte.
 // export function filtradoDeportistas(dataOriginal){

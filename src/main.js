@@ -4,7 +4,7 @@
 //import banderas from './data/banderas.json';
 // import slider from './slider'
 import data from "./data/athletes/atletasImg.js";
-import {listaDeportes,filterData} from "./data.js";
+import {listaDeportes,filterData,listaEventos, filterEvento} from "./data.js";
 
 function principal() {
     pintarDeportes()
@@ -31,6 +31,7 @@ function pintarDeportes(){
 // boton buscador
 let buscarDeporte= document.getElementById('search-btn')
 buscarDeporte.addEventListener('click',function(){
+    console.log("click search-btn")
     const nombreDeporte = document.getElementById('search').value
     //Esconder iconos DE LOGOS
     const logosDeportes = document.getElementById("logosDeportes")
@@ -38,29 +39,17 @@ buscarDeporte.addEventListener('click',function(){
 
     logosDeportes.classList.add('hide')
     eliminarDeportistas.classList.remove('hide')
-    // Filtrado de datos
-    const deporteFiltrado= filterData(data,nombreDeporte)
-    const listaDeportistas=document.getElementById('listaDeportistas');
-    deporteFiltrado.forEach((nombre)=> {
-        const lista=document.createElement('p')
-        const texto=document.createTextNode(`${nombre.name} - ${nombre.event}`)
-        lista.appendChild(texto)
-        listaDeportistas.insertAdjacentElement('beforeend',lista)
-    })
 
-    //funcion para traer eventos y crear option del select
-
+    //Para crear los options del select 
     const eventosFiltrados=filterData(data,nombreDeporte)
+    // console.log("soy evento",eventosFiltrados)
+    let arrayEventos = listaEventos (eventosFiltrados)
     const selectorEventos=document.getElementById("select-eventos")
-    let arrayEventos=[]
-    eventosFiltrados.forEach((evento)=>{
-        if(!arrayEventos.includes(evento.event)){
-            arrayEventos.push(evento.event)
-        
-        }
-        
-    })
-    console.log(arrayEventos)
+    selectorEventos.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
+    const opciones=document.createElement('option')
+    const eventos = document.createTextNode('Buscar por evento')
+    opciones.appendChild(eventos)
+    selectorEventos.insertAdjacentElement('beforeend',opciones)
     arrayEventos.forEach((superFiltrado)=>{
         const opciones=document.createElement('option')
         const eventos=document.createTextNode(`${superFiltrado}`)
@@ -70,16 +59,31 @@ buscarDeporte.addEventListener('click',function(){
     })
     // console.log('aqui estoy',texto)
     // lista.appendChild(texto)
+    // Filtrado de datos
+    
 })
 
 
-// let evento=document.getElementById('search-evento')
-// let eventoDeporte=[]
-// data.forEach(function(competencia){
-//     if(!eventoDeporte.includes(competencia.event)){
-//         console.log('evento',eventoDeporte)
-//         return
-//     }
-// })
+//boton select eventos (Para desplegar los ganadores de los eventos)
+const selectEventos= document.getElementById('select-eventos')
+selectEventos.addEventListener('change',function(){
+    console.log("change selectEventos")
+    pintarAtletas()
+})
+
+function pintarAtletas(){
+    let nombreDeporte= document.getElementById('search').value;
+    const filtradoPorEvento= filterEvento(data,)
+    console.log("soy deportistas",filtradoPorEvento)
+    const listaDeportistas=document.getElementById('listaDeportistas');
+    listaDeportistas.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
+    deporteFiltrado.forEach((nombre)=> {
+        const lista=document.createElement('p')
+        const texto=document.createTextNode(`${nombre.name} - ${nombre.event}`)
+        lista.appendChild(texto)
+        listaDeportistas.insertAdjacentElement('beforeend',lista)
+    })
+
+}
 
 
