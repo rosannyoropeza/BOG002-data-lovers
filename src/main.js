@@ -67,13 +67,13 @@ buscarDeporte.addEventListener('click',function(){
 //boton select eventos (Para desplegar los ganadores de los eventos)
 const selectEventos= document.getElementById('select-eventos')
 selectEventos.addEventListener('change',function(){
-    console.log("change selectEventos")
-    pintarAtletas()
+    pintarAtletas(selectEventos.value)
 })
 
-function pintarAtletas(){
+function pintarAtletas(option){
     let nombreDeporte= document.getElementById('search').value;
-    const filtradoPorEvento= filterEvento(data,)
+    console.log("soy nombre deporte",nombreDeporte)
+    const filtradoPorEvento= filterEvento(data,option)
     console.log("soy deportistas",filtradoPorEvento)
     const listaDeportistas=document.getElementById('listaDeportistas');
     listaDeportistas.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
