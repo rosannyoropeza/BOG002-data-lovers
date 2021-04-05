@@ -11,10 +11,11 @@ function principal() {
 }
 principal()
 
-function pintarDeportes(){
-    let eventos=listaDeportes(data)
+function pintarDeportes(deporte=''){
+    let eventos=listaDeportes(data, deporte)
     let contenido = "";
     let logosDeportes = document.getElementById("logosDeportes");
+    logosDeportes.innerHTML='';
     eventos.forEach(function (disciplina) {
         const imagen= document.createElement('img')
         imagen.setAttribute('src',`./assets/depOlimpicos/${disciplina}.svg`)
@@ -37,8 +38,8 @@ buscarDeporte.addEventListener('click',function(){
     const logosDeportes = document.getElementById("logosDeportes")
     const eliminarDeportistas = document.getElementById("listaDeportistas")
 
-    logosDeportes.classList.add('hide')
-    eliminarDeportistas.classList.remove('hide')
+    // logosDeportes.classList.add('hide')
+    // eliminarDeportistas.classList.remove('hide')
 
     //Para crear los options del select 
     const eventosFiltrados=filterData(data,nombreDeporte)
@@ -56,11 +57,23 @@ buscarDeporte.addEventListener('click',function(){
 
         opciones.appendChild(eventos)
         selectorEventos.insertAdjacentElement('beforeend',opciones)
+
+
     })
+
+    pintarDeportes(nombreDeporte)
+
     // console.log('aqui estoy',texto)
     // lista.appendChild(texto)
     // Filtrado de datos
     
+})
+
+let search= document.getElementById('search')
+search.addEventListener('keyup',function(){
+    //filterData(data,search.value)
+    // console.log(search.value)
+    buscarDeporte.click();
 })
 
 
@@ -77,13 +90,13 @@ function pintarAtletas(option){
     console.log("soy deportistas",filtradoPorEvento)
     const listaDeportistas=document.getElementById('listaDeportistas');
     listaDeportistas.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
-    deporteFiltrado.forEach((nombre)=> {
+    filtradoPorEvento.forEach((nombre)=> {
         const lista=document.createElement('p')
         const texto=document.createTextNode(`${nombre.name} - ${nombre.event}`)
         lista.appendChild(texto)
         listaDeportistas.insertAdjacentElement('beforeend',lista)
     })
-
+    listaDeportistas.classList.remove('hide')
 }
 
 

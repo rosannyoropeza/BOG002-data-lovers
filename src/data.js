@@ -3,12 +3,25 @@
  * @param {Array} dataOriginal 
  * @returns {Array}
  */
-export function listaDeportes(dataOriginal){
+export function listaDeportes(dataOriginal, filterDeporte){
   let newSport = [];
   dataOriginal.forEach(function (deporte) {
-    if (!newSport.includes(deporte.sport)) {
-      newSport.push(deporte.sport);
+    
+    if (filterDeporte.length>0){
+      if (!newSport.includes(deporte.sport) && deporte.sport.toUpperCase().startsWith(filterDeporte.toUpperCase())) {
+        console.log(newSport)
+
+        newSport.push(deporte.sport);
+      }
+    }     
+
+    if (filterDeporte.length === 0){
+      if (!newSport.includes(deporte.sport)) {
+        console.log("else")
+        newSport.push(deporte.sport);
+      }
     }
+
   });
   return newSport
 }
@@ -20,7 +33,7 @@ export function listaDeportes(dataOriginal){
  * @returns {Array}
  */
 export function filterData(data,valor){
-  return data.filter((deporte)=>deporte.sport===valor)
+  return data.filter((deporte)=>deporte.sport.toUpperCase().startsWith(valor.toUpperCase()))
 }
 
 /**
