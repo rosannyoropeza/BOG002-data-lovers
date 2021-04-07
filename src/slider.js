@@ -1,11 +1,19 @@
-//Aqui comienza el slider
-let slider=document.querySelector("#slider"); //Devuelve el primer elemento del documento que coincida con el grupo especificado de selectores.
-let imagenes=document.querySelectorAll(".slider_section");//devuelve una NodeList estática (no viva) que representa una lista de elementos del documento que coinciden con el grupo de selectores indicados.
-const btnLeft=document.querySelector("btn_left");
-const btnRigth=document.querySelector("btn_right");
-let sliderSectionLast=imagenes[imagenes.length -1];
+// Aqui comienza el slider
 
-slider.insertAdjacentElement("afterbegin",sliderSectionLast);
+// Devuelve el primer elemento del documento que coincida con el grupo especificado de selectores.
+let slider = document.querySelector("#slider"); 
+// Devuelve una NodeList estática (no viva) que representa una lista de elementos del documento que coinciden con el grupo de selectores indicados.
+let imagenes = document.querySelectorAll(".slider_section");
+let sliderSectionLast = imagenes[imagenes.length -1];
+slider.insertAdjacentElement("afterbegin", sliderSectionLast);
+
+// Elementos navegacion
+const btnLeft = document.querySelector(".slider_btn_left"); 
+const btnRigth = document.querySelector(".slider_btn_right");
+
+// listener funcion flecha
+btnLeft.addEventListener('click', btn_left)
+btnRigth.addEventListener('click', btn_right)
 
 function next(){//Funcion para ir hacia adelante
     let imagenes=document.querySelectorAll(".slider_section")[0];
@@ -31,6 +39,7 @@ function prev(){//Funcion para ir atras
    }, 500);
 } 
 
+// TODO FUCTION IS NOT BEING USED
 var ciclo = 0;
 function btn_right(){
     clearInterval(ini);//Para limpiar el intervalo de tiempo del ciclo

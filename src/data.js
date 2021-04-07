@@ -9,19 +9,13 @@ export function listaDeportes(dataOriginal, filterDeporte){
     
     if (filterDeporte.length>0){
       if (!newSport.includes(deporte.sport) && deporte.sport.toUpperCase().startsWith(filterDeporte.toUpperCase())) {
-        console.log(newSport)
-
         newSport.push(deporte.sport);
       }
-    }     
-
-    if (filterDeporte.length === 0){
+    } else if (filterDeporte.length === 0){
       if (!newSport.includes(deporte.sport)) {
-        console.log("else")
         newSport.push(deporte.sport);
       }
     }
-
   });
   return newSport
 }

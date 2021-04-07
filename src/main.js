@@ -13,7 +13,6 @@ principal()
 
 function pintarDeportes(deporte=''){
     let eventos=listaDeportes(data, deporte)
-    let contenido = "";
     let logosDeportes = document.getElementById("logosDeportes");
     logosDeportes.innerHTML='';
     eventos.forEach(function (disciplina) {
@@ -32,11 +31,10 @@ function pintarDeportes(deporte=''){
 // boton buscador
 let buscarDeporte= document.getElementById('search-btn')
 buscarDeporte.addEventListener('click',function(){
-    console.log("click search-btn")
     const nombreDeporte = document.getElementById('search').value
     //Esconder iconos DE LOGOS
-    const logosDeportes = document.getElementById("logosDeportes")
-    const eliminarDeportistas = document.getElementById("listaDeportistas")
+    // const logosDeportes = document.getElementById("logosDeportes")
+    // const eliminarDeportistas = document.getElementById("listaDeportistas")
 
     // logosDeportes.classList.add('hide')
     // eliminarDeportistas.classList.remove('hide')
@@ -84,10 +82,8 @@ selectEventos.addEventListener('change',function(){
 })
 
 function pintarAtletas(option){
-    let nombreDeporte= document.getElementById('search').value;
-    console.log("soy nombre deporte",nombreDeporte)
+    // let nombreDeporte= document.getElementById('search').value;
     const filtradoPorEvento= filterEvento(data,option)
-    console.log("soy deportistas",filtradoPorEvento)
     const listaDeportistas=document.getElementById('listaDeportistas');
     listaDeportistas.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
     filtradoPorEvento.forEach((nombre)=> {
