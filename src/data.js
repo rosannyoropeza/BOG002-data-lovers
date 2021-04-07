@@ -1,9 +1,10 @@
 /**
  * 
- * @param {Array} dataOriginal 
+ * @param {Array} dataOriginal
+ * @param {String} filterDeporte
  * @returns {Array}
  */
-export function listaDeportes(dataOriginal, filterDeporte){
+export function listaDeportes(dataOriginal, filterDeporte = ''){
   let newSport = [];
   dataOriginal.forEach(function (deporte) {
     
@@ -11,7 +12,7 @@ export function listaDeportes(dataOriginal, filterDeporte){
       if (!newSport.includes(deporte.sport) && deporte.sport.toUpperCase().startsWith(filterDeporte.toUpperCase())) {
         newSport.push(deporte.sport);
       }
-    } else if (filterDeporte.length === 0){
+    } else {
       if (!newSport.includes(deporte.sport)) {
         newSport.push(deporte.sport);
       }
