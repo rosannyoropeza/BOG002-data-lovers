@@ -1,5 +1,5 @@
 /**
- * 
+ * //Filtro para deportes participantes y crear select
  * @param {Array} dataOriginal
  * @param {String} filterDeporte
  * @returns {Array}
@@ -22,7 +22,7 @@ export function listaDeportes(dataOriginal, filterDeporte = ''){
 }
 
 /**
- * 
+ * //filtro de string para el buscador
  * @param {Array} data 
  * @param {String} valor 
  * @returns {Array}
@@ -32,7 +32,7 @@ export function filterData(data,valor){
 }
 
 /**
- * 
+ * // Filtro para eventos participantes segun deporte 
  * * 
  * @param {Array} eventosFiltrados//Recibe un array de eventos filtrados por deportes
  * @returns {Array}
@@ -49,7 +49,7 @@ export function listaEventos(eventosFiltrados){
 }
 
 /**
- * 
+ * // filtro para traer los atletas participantes en el evento
  * @param {Array} data 
  * @param {String} valor 
  * @returns {Array}

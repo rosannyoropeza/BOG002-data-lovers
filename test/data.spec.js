@@ -1,11 +1,11 @@
-import { listaDeportes } from '../src/data.js';
+import { listaDeportes,filterData } from '../src/data.js';
 
 describe('listaDeportes funcion para filtrar deportes', () => {
-  const mockArray=[{sport:'tennis'},{sport:'futbol'},{sport:'basquetbol'},{sport:'taekondo'}]
-  it('Esa funcion retorna un array de deportes', () => {
+  it('Esta funcion retorna un array de deportes', () => {
     const filtro = listaDeportes([],"")
     expect(filtro).toStrictEqual([]);
   });
+  const mockArray=[{sport:'tennis'},{sport:'futbol'},{sport:'basquetbol'},{sport:'taekondo'}]
   it('Probar que filtro segun el valor dado',() => {
     const filtro = listaDeportes(mockArray,"f")
     expect(filtro).toMatchObject(["futbol"])
@@ -17,3 +17,10 @@ describe('listaDeportes funcion para filtrar deportes', () => {
     expect(filtro).toMatchObject(["tennis","futbol","basquetbol","taekondo"])
   })
 });
+
+describe('filterData funcion para filtrar deportes en el buscador',() =>{
+  it('Esta funcion retorna un array con los deportes participantes', () =>{
+    const deportes= filterData([],"")
+    expect(deportes).toStrictEqual([])
+  })
+})
