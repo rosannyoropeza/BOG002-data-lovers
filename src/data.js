@@ -63,9 +63,9 @@ export function listaEventos(eventosFiltrados){
 
 
 
-export function banderas(){
+// export function banderas(){
 
-}
+// }
 
 
 
