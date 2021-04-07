@@ -1,4 +1,4 @@
-import { listaDeportes,filterData } from '../src/data.js';
+import { listaDeportes,filterData,listaEventos } from '../src/data.js';
 
 describe('listaDeportes funcion para filtrar deportes', () => {
   it('Esta funcion retorna un array de deportes', () => {
@@ -22,5 +22,17 @@ describe('filterData funcion para filtrar deportes en el buscador',() =>{
   it('Esta funcion retorna un array con los deportes participantes', () =>{
     const deportes= filterData([],"")
     expect(deportes).toStrictEqual([])
+  })
+})
+
+describe('listaEventos funcion para filtrar eventos y crear option del select',()=>{
+  it ('Esta funcion retorna un array de eventos',()=>{
+    const eventos=listaEventos([])
+    expect(eventos).toStrictEqual([])
+  })
+  const mockEvento=[{event:"Gymnastics Men's Horse Vault"},{event:"Basketball Men's Basketball"},{event:"Gymnastics Men's Horse Vault"},{event:"Athletics Women's Shot Put"}]
+  it('Probar que el evento no se repita',()=>{
+    const eventos=listaEventos(mockEvento)
+    expect(eventos).toMatchObject(["Gymnastics Men's Horse Vault","Basketball Men's Basketball","Athletics Women's Shot Put"])
   })
 })
