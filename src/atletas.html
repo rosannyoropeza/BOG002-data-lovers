@@ -46,8 +46,23 @@
     <!-- <img src="//cdn.icon-icons.com/icons2/879/PNG/512/olimpycs_29_icon-icons.com_68611.png" alt="" style="width: 150px;" style="height: 100px;"> -->
     <!-- <img src="./assets/depOlimpicos/olimpycs_11_icon-icons.com_68629.svg" alt="" style="width: 150px;" style="height: 100px;"> -->
     <main>
-        <div id="logoDeporte">
-
+        <section>
+          <h1>ATLETAS</h1>
+          <div class="search_atletas">
+            <input type="search_atletas" id="search_atletas" placeholder="Buscar por nombre del atleta o por país" autocomplete="off">
+            <input type="image" id="search-btn-atletas" src="./assets/logos/lupa.jpeg" >
+          </div>
+          <div class="select_ordenar">
+            <select id="filtroAz" class="filtroAz" name="OrdenAZ">
+              <option value="a-z">Ordenar</option>
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
+            </select>
+          </div>
+        </section>
+        <div id='listaAtletas'>
+        </div>
+        <div id="tarjetasAtletas">
         </div>
     </main>
     

@@ -270,3 +270,95 @@ main section .search-evento #select-eventos{
     display: none;
 }
 
+/* pantalla de atleta */
+main section .search_atletas{
+    width: 90%;
+    /* background-color: #6d6a6a; */
+    display: flex;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+main section .search_atletas #search-btn-atletas{
+    border-radius:50%;
+    background-color: #e0dddd;
+    width: 28px;
+    height: 28px; 
+    position: relative;
+    padding:10px;
+    margin: auto;
+}
+main section .search_atletas #search_atletas{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #3a3939;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+}
+/*Select Ordenar A-Z*/
+main section .select_ordenar{
+    width: 90%;
+    /* background-color: #6d6a6a; */
+    display: flex;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+main section .select_ordenar .filtroAz{
+    display: flex;
+    width: 90%;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+main section .select_ordenar #filtroAz{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #616060;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+    cursor: pointer;
+}
+/*Aqui comienza la seccion Atletas*/
+
+#listaAtletas{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-gap: 14px;
+}
+
+.deportistas img{
+    width: 100%;
+}
+
+.imagenDeportista{
+    width: 200px;
+    height:200px;
+    border-radius: 50%;
+}
+.deportistas h3{
+    word-break: break-word;
+    text-align: center;
+} 

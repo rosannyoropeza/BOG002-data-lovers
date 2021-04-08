@@ -58,7 +58,27 @@ export function listaEventos(eventosFiltrados){
   return data.filter((evento)=>evento.event===valor)
 }
 
+/** Para obtener los atletas y crear su ficha
+ * 
+ * @param {Array} data 
+ * @param {String} valor 
+ * @returns {Array}
+ */
+ export function filterAtletas(data,valor){
+  let deportistas= data.filter((atletas)=> atletas.name.toUpperCase().startsWith(valor.toUpperCase()) || atletas.team.toUpperCase().startsWith(valor.toUpperCase()))
+  let deportistasunicos=[]
+  //quitamos duplicados colocando como indice el mismo nombre para que se reemplace
+  deportistas.forEach((deportista)=>{
+    deportistasunicos[deportista.name] = deportista;
+  })
+  deportistasunicos =  Object.values(deportistasunicos); // re-conversión indices del Array sin duplicados
+  //console.log(deportistasunicos)
+  return deportistasunicos;
+}
 
+
+
+// export function stadistica
 
 
 
