@@ -43,19 +43,24 @@ function athletcWinner(ordenar){
                 listaAtletas.innerHTML='';
                 //Para crear la Lista de los atletas
                 unicos.forEach(function(deportistas){
-                const contenedorDeportista= document.createElement('div')   
-                contenedorDeportista.classList.add('deportista')
-                contenedorDeportista.setAttribute('id',deportistas.name)
-                const imagen= document.createElement('img')
-                imagen.classList.add('imagenDeportista')
-                imagen.setAttribute('src',deportistas.image)
-                imagen.setAttribute('onError','this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"')
-                const h3=document.createElement('h3')
-                const texto=document.createTextNode(`${deportistas.name} ${deportistas.sport} - ${deportistas.noc}`)
-                h3.appendChild(texto)
-                contenedorDeportista.insertAdjacentElement('beforeend',imagen)
-                contenedorDeportista.insertAdjacentElement('beforeend',h3)
-                listaAtletas.insertAdjacentElement('beforeend',contenedorDeportista)
+                    const contenedorDeportista= document.createElement('div')   
+                    contenedorDeportista.classList.add('deportista')
+                    contenedorDeportista.setAttribute('id',deportistas.name)
+                    const imagen= document.createElement('img')
+                    imagen.classList.add('imagenDeportista')
+                    imagen.setAttribute('src',deportistas.image)
+                    imagen.setAttribute('onError','this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"')
+                    
+                    contenedorDeportista.addEventListener("click",function(){
+                        mostrarFicha(deportistas.name)
+                    })
+                    
+                    const h3=document.createElement('h3')
+                    const texto=document.createTextNode(`${deportistas.name} ${deportistas.sport} - ${deportistas.noc}`)
+                    h3.appendChild(texto)
+                    contenedorDeportista.insertAdjacentElement('beforeend',imagen)
+                    contenedorDeportista.insertAdjacentElement('beforeend',h3)
+                    listaAtletas.insertAdjacentElement('beforeend',contenedorDeportista)
                 });
             }
         
@@ -149,23 +154,20 @@ if (filtroAz){
 })
 }
 
+function mostrarFicha(nombre){
+    console.log("soy nombre", nombre)
+}
 
-
-
-//Ficha de Atleta
-// const buttonAthletes=document.getElementsByClassName("deportista");
-// console.log(buttonAthletes)
-//  if (buttonAthletes){
+ 
 //     buttonAthletes.addEventListener("click",function(event){
-//          //console.log(event.target.id)
+//            console.log("s6y y6",event.target.id)
 //          let nombreAtleta = event.target.id
-//          //  let banderasParticipantes=filtradoBanderas(banderas,idAtletas)
-//             const atletaUnico=filterAtletas(data,nombreAtleta)
+//          //let banderasParticipantes=filtradoBanderas(banderas,idAtletas)
+//  //             const atletaUnico=filterAtletas(data,nombreAtleta)
 // //             console.log(atletaUnico)
-//         pintarAtletasGanadores()
-//         }
-//     )
-// }
+//           pintarAtletasGanadores()
+// //          })
+ 
 
 // function pintarAtletasGanadores(){
 //     const tarjetasAtletas=document.querySelector("tarjetasAtletas")
