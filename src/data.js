@@ -65,26 +65,25 @@ export function listaEventos(eventosFiltrados){
  * @returns {Array}
  */
  export function filterAtletas(data,valor){
-  let deportistas= data.filter((atletas)=> atletas.name.toUpperCase().startsWith(valor.toUpperCase()) || atletas.team.toUpperCase().startsWith(valor.toUpperCase()))
-  return deportistas;
+  return  data.filter((atletas)=> atletas.name.toUpperCase().startsWith(valor.toUpperCase()) || atletas.team.toUpperCase().startsWith(valor.toUpperCase()))
 }
 
 
-/** Para obtener los atletas y crear su ficha
+/** Para obtener los atletas no duplicados
  * 
  * @param {Array} data 
  * @param {String} valor 
  * @returns {Array}
  */
- export function atletasUnicos(data,valor){
-  let deportistasunicos=[]
+ export function atletasUnicos(data){
+  let deportistasNoDuplicados=[]
   //quitamos duplicados colocando como indice el mismo nombre para que se reemplace
   data.forEach((deportista)=>{
-    deportistasunicos[deportista.name] = deportista;
+    deportistasNoDuplicados[deportista.name] = deportista;
   })
-  deportistasunicos =  Object.values(deportistasunicos); // re-conversión indices del Array sin duplicados
-  //console.log(deportistasunicos)
-  return deportistasunicos;
+  deportistasNoDuplicados =  Object.values(deportistasNoDuplicados); // re-conversión indices del Array sin duplicados
+  //console.log(deportistasNoDuplicados)
+  return deportistasNoDuplicados;
 }
 
 /** Para obtener ordenar los atletas de la A-Z
@@ -97,7 +96,7 @@ export function listaEventos(eventosFiltrados){
   let ordenarAtletas= data.sort((a,b)=> a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1);
   if (select === 'z-a') {
     ordenarAtletas= ordenarAtletas.reverse()
-    console.log("orden",ordenarAtletas)
+    //console.log("orden",ordenarAtletas)
   } 
   return ordenarAtletas;
 }

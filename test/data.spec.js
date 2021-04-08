@@ -1,4 +1,4 @@
-import { listaDeportes,filterData,listaEventos, filterEvento } from '../src/data.js';
+import { listaDeportes,filterData,listaEventos, filterEvento,filterAtletas,atletasUnicos } from '../src/data.js';
 
 const mockArray=[{sport:'tennis'},{sport:'futbol'},{sport:'basquetbol'},{sport:'taekondo'}]
 describe('listaDeportes funcion para filtrar deportes', () => {
@@ -42,10 +42,27 @@ describe('listaEventos funcion para filtrar eventos y crear option del select',(
     expect(eventos).toMatchObject(["Gymnastics Men's Horse Vault","Basketball Men's Basketball","Athletics Women's Shot Put"])
   })
 })
+
 describe('filterEvento funcion para traer los atletas participantes en el evento ', () => {
   it('Esta funcion retorna un array de atletas y su deporte', () =>{
     const mockAtletas = [{name:'Rosanny Oropeza', event:'Gymnastics'},{name:'Angie Cortes', event:'Swimming'},{name:'Leidy Sanchez',event:'Soccer'}]
     const atletas= filterEvento(mockAtletas,"Gymnastics")
     expect (atletas).toHaveLength(1)
+  })
+})
+
+describe('filterAtletas funcion para traer los atletas filtrados', ()=>{
+  it('Esta funcion retorna un array de atletas',() =>{
+    const mockAtletas = [{name:'Rosanny Oropeza', team:'Venezuela'},{name:'Angie Cortes', team:'Colombia'},{name:'Leidy Sanchez',team:'Uruguay'}]
+    const arregloAtleta=filterAtletas(mockAtletas,"r")
+    expect (arregloAtleta).toStrictEqual([{'name':'Rosanny Oropeza', 'team':'Venezuela'}])
+  })
+})
+
+describe('atletasUnicos funcion que trae atletas no repetidos', ()=>{
+  it('Esta funcion retorna un array de atletas sin duplicados',()=>{
+    const mockAtletasDuplicados = [{name:'Rosanny Oropeza'},{name:'Angie Cortes'},{name:'Leidy Sanchez'},{name:'Rosanny Oropeza'}]
+    const arregloAtletaUnico=atletasUnicos(mockAtletasDuplicados)
+    expect (arregloAtletaUnico).toMatchObject([{name:'Rosanny Oropeza'},{name:'Angie Cortes'},{name:'Leidy Sanchez'}]) 
   })
 })

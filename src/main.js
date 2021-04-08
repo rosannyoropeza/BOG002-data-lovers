@@ -51,7 +51,6 @@ function athletcWinner(ordenar){
                 imagen.setAttribute('src',deportistas.image)
                 imagen.setAttribute('onError','this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"')
                 const h3=document.createElement('h3')
-                const enterBr=document.createElement('br')
                 const texto=document.createTextNode(`${deportistas.name} ${deportistas.sport} - ${deportistas.noc}`)
                 h3.appendChild(texto)
                 contenedorDeportista.insertAdjacentElement('beforeend',imagen)
@@ -68,9 +67,8 @@ if ( buscarDeporte) {
     buscarDeporte.addEventListener('click',function(){
         const nombreDeporte = document.getElementById('search').value
         //Esconder iconos DE LOGOS
-        const logosDeportes = document.getElementById("logosDeportes")
-        const eliminarDeportistas = document.getElementById("listaDeportistas")
-    
+        //const logosDeportes = document.getElementById("logosDeportes")
+        //const eliminarDeportistas = document.getElementById("listaDeportistas")
         // logosDeportes.classList.add('hide')
         // eliminarDeportistas.classList.remove('hide')
     
@@ -129,7 +127,7 @@ function pintarAtletas(option){
 //Buscador por Atletas
 const searchButtonAthletes = document.getElementById("search-btn-atletas");
 if (searchButtonAthletes){
-    searchButtonAthletes.addEventListener("click",function(event){
+    searchButtonAthletes.addEventListener("click",function(){
         //console.log(event.target.id)
         athletcWinner(data)
     })    
