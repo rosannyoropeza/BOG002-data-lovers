@@ -15,18 +15,20 @@ principal()
 function pintarDeportes(deporte=''){
     let eventos=listaDeportes(data, deporte)
     let logosDeportes = document.getElementById("logosDeportes");
-    logosDeportes.innerHTML='';
-    eventos.forEach(function (disciplina) {
-        const imagen= document.createElement('img')
-        imagen.setAttribute('src',`./assets/depOlimpicos/${disciplina}.svg`)
-        const cajaDisciplina= document.createElement('div')
-        cajaDisciplina.classList.add('tipoDeporte')
-        const titulo=document.createElement('h3')
-        titulo.innerHTML=disciplina.replace('_',' ')
-        cajaDisciplina.insertAdjacentElement('beforeend',imagen)
-        cajaDisciplina.insertAdjacentElement('beforeend',titulo)
-        logosDeportes.insertAdjacentElement('beforeend',cajaDisciplina)
-    });
+    if (logosDeportes) {
+        logosDeportes.innerHTML='';
+        eventos.forEach(function (disciplina) {
+            const imagen= document.createElement('img')
+            imagen.setAttribute('src',`./assets/depOlimpicos/${disciplina}.svg`)
+            const cajaDisciplina= document.createElement('div')
+            cajaDisciplina.classList.add('tipoDeporte')
+            const titulo=document.createElement('h3')
+            titulo.innerHTML=disciplina.replace('_',' ')
+            cajaDisciplina.insertAdjacentElement('beforeend',imagen)
+            cajaDisciplina.insertAdjacentElement('beforeend',titulo)
+            logosDeportes.insertAdjacentElement('beforeend',cajaDisciplina)
+        });
+    }
 }
 
 function athletcWinner(ordenar){
@@ -82,7 +84,7 @@ if ( buscarDeporte) {
         const selectorEventos=document.getElementById("select-eventos")
         selectorEventos.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
         const opciones=document.createElement('option')
-        const eventos=document.createTextNode(`${superFiltrado}`)
+        const eventos = document.createTextNode('Buscar por evento')
 
         opciones.appendChild(eventos)
         selectorEventos.insertAdjacentElement('beforeend',opciones)
@@ -108,10 +110,11 @@ if (search){
 
 //Para crear el select eventos (Para desplegar los ganadores de los eventos)
 const selectEventos= document.getElementById('select-eventos')
+if (selectEventos){
 selectEventos.addEventListener('change',function(){
     pintarAtletas(selectEventos.value)
 })
-
+}
 function pintarAtletas(option){
     // let nombreDeporte= document.getElementById('search').value;
     const filtradoPorEvento= filterEvento(data,option)
