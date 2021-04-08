@@ -1,4 +1,4 @@
-import { listaDeportes,filterData,listaEventos, filterEvento,filterAtletas,atletasUnicos } from '../src/data.js';
+import { listaDeportes,filterData,listaEventos, filterEvento,filterAtletas,atletasUnicos,ordenar } from '../src/data.js';
 
 const mockArray=[{sport:'tennis'},{sport:'futbol'},{sport:'basquetbol'},{sport:'taekondo'}]
 describe('listaDeportes funcion para filtrar deportes', () => {
@@ -64,5 +64,17 @@ describe('atletasUnicos funcion que trae atletas no repetidos', ()=>{
     const mockAtletasDuplicados = [{name:'Rosanny Oropeza'},{name:'Angie Cortes'},{name:'Leidy Sanchez'},{name:'Rosanny Oropeza'}]
     const arregloAtletaUnico=atletasUnicos(mockAtletasDuplicados)
     expect (arregloAtletaUnico).toMatchObject([{name:'Rosanny Oropeza'},{name:'Angie Cortes'},{name:'Leidy Sanchez'}]) 
+  })
+})
+
+describe('ordenar funcion que trae la lista de atletas ordenados de la a-z o z-a', () =>{
+  const mockOrden= [{name:'Rosanny Oropeza'},{name:'Angie Cortes'},{name:'Leidy Sanchez'}]
+  it('Esta funcion retorna un array de atletas ordenados z-a', () =>{
+    const ordenarNombres=ordenar(mockOrden,'z-a')
+    expect(ordenarNombres).toStrictEqual([{"name": "Rosanny Oropeza"},{'name':'Leidy Sanchez'},{'name':'Angie Cortes'}])
+  })
+  it('Esta funcion retorna un array de atletas ordenado de la a-z', () =>{
+    const ordenarNombres=ordenar(mockOrden,'a-z')
+    expect(ordenarNombres).toStrictEqual([{"name": "Angie Cortes"},{'name':'Leidy Sanchez'},{'name':'Rosanny Oropeza'}])
   })
 })
