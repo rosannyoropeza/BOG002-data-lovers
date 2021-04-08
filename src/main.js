@@ -1,4 +1,4 @@
-// import { data } from './data.js';
+    // import { data } from './data.js';
 
 // import data from './data/lol/lol.js';
 //import banderas from './data/banderas.json';
@@ -15,9 +15,8 @@ principal()
 function pintarDeportes(deporte=''){
     let eventos=listaDeportes(data, deporte)
     let logosDeportes = document.getElementById("logosDeportes");
-    if (logosDeportes) {
-        logosDeportes.innerHTML='';
-        eventos.forEach(function (disciplina) {
+    logosDeportes.innerHTML='';
+    eventos.forEach(function (disciplina) {
         const imagen= document.createElement('img')
         imagen.setAttribute('src',`./assets/depOlimpicos/${disciplina}.svg`)
         const cajaDisciplina= document.createElement('div')
@@ -27,8 +26,7 @@ function pintarDeportes(deporte=''){
         cajaDisciplina.insertAdjacentElement('beforeend',imagen)
         cajaDisciplina.insertAdjacentElement('beforeend',titulo)
         logosDeportes.insertAdjacentElement('beforeend',cajaDisciplina)
-        });
-    }
+    });
 }
 
 function athletcWinner(ordenar){
@@ -84,7 +82,8 @@ if ( buscarDeporte) {
         const selectorEventos=document.getElementById("select-eventos")
         selectorEventos.innerHTML='';// Vaciamos la lista para reiniciar el contenido y evitar duplicados
         const opciones=document.createElement('option')
-        const eventos = document.createTextNode('Buscar por evento')
+        const eventos=document.createTextNode(`${superFiltrado}`)
+
         opciones.appendChild(eventos)
         selectorEventos.insertAdjacentElement('beforeend',opciones)
         arrayEventos.forEach((superFiltrado)=>{
@@ -109,11 +108,9 @@ if (search){
 
 //Para crear el select eventos (Para desplegar los ganadores de los eventos)
 const selectEventos= document.getElementById('select-eventos')
-if (search){
-    selectEventos.addEventListener('change',function(){
-        pintarAtletas(selectEventos.value)
-    })
-}
+selectEventos.addEventListener('change',function(){
+    pintarAtletas(selectEventos.value)
+})
 
 function pintarAtletas(option){
     // let nombreDeporte= document.getElementById('search').value;
@@ -194,14 +191,5 @@ function mostrarFicha(nombre){
 
 
 
-//Funcion para grafica de paises ganadores
 
 
-// function medalleroPaises(){
-//     const paisesGanadores =document.getElementById('regions_div')
-//     let paisesFiltrado=data.map((country)=>{
-//         console.log(paisesFiltrado)
-//         return country.team;
-//     });
-// } 
-// medalleroPaises()
