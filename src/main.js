@@ -116,54 +116,51 @@ function athletcWinner(ordenar) {
   if (listaAtletas) {
     listaAtletas.innerHTML = "";
     //Para crear la Lista de los atletas
-    unicos.forEach(function (deportistas) {
-      const contenedorDeportista = document.createElement("div");
-      contenedorDeportista.classList.add("deportista");
-      contenedorDeportista.setAttribute("id", deportistas.name);
-      const imagen = document.createElement("img");
-      imagen.classList.add("imagenDeportista");
-      imagen.setAttribute("src", deportistas.image);
-      imagen.setAttribute(
-        "onError",
-        'this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"'
-      );
+    unicos.forEach(function (deportista) {
+      const imagen = imagenDeportista(deportista.image);
+     
+      const contenedorDeportista = crearContenedorDeportista(deportista,imagen) 
 
-      contenedorDeportista.addEventListener("click", function () {
-        listaAtletas.innerHTML = ""; // Vaciamos la lista para reiniciar el contenido y evitar duplicados
-        mostrarFicha(deportistas.name);
-      });
-
-      const h3 = document.createElement("h3");
-      const texto = document.createTextNode(`${deportistas.name}`);
-      h3.appendChild(texto);
-      const p = document.createElement("p");
-      const textoParr = document.createTextNode(
-        `${deportistas.sport} - ${deportistas.noc}`
-      );
-      p.appendChild(textoParr);
-      contenedorDeportista.insertAdjacentElement("beforeend", imagen);
-      contenedorDeportista.insertAdjacentElement("beforeend", h3);
-      contenedorDeportista.insertAdjacentElement("beforeend", p);
       listaAtletas.insertAdjacentElement("beforeend", contenedorDeportista);
     });
   }
 }
 
-// function imagenDeportista(){
-//     let containerImagen= document.createElement('div')
+function imagenDeportista(img){
+    const imagen = document.createElement("img");
+    imagen.classList.add("imagenDeportista");
+    imagen.setAttribute("src", img);
+    imagen.setAttribute(
+      "onError",
+      'this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"'
+    );
 
-//         if(let i=0; i<data.length ; i ++)
-//     containerImagen.innerHTML=`
+    return imagen;
+}
 
-//     `
-//     const imagen= document.createElement('img')
-//                     imagen.classList.add('imagenDeportista')
-//                     imagen.setAttribute('src',deportistas.image)
-//                     imagen.setAttribute('onError','this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"')
-//     document.body.appendChild('beforeend',containerImagen)
-//     return document.body
-// }
-// imagenDeportista()
+function crearContenedorDeportista(deportista,imagen) {
+    const contenedorDeportista = document.createElement("div");
+    contenedorDeportista.classList.add("deportista");
+    contenedorDeportista.setAttribute("id", deportista.name);
+
+    contenedorDeportista.addEventListener("click", function () {
+      mostrarFicha(deportista);
+    });
+
+    const h3 = document.createElement("h3");
+    const texto = document.createTextNode(`${deportista.name}`);
+    h3.appendChild(texto);
+    const p = document.createElement("p");
+    const textoParr = document.createTextNode(
+      `${deportista.sport} - ${deportista.noc}`
+    );
+    p.appendChild(textoParr);
+    contenedorDeportista.insertAdjacentElement("beforeend", imagen);
+    contenedorDeportista.insertAdjacentElement("beforeend", h3);
+    contenedorDeportista.insertAdjacentElement("beforeend", p);
+
+    return contenedorDeportista;
+}
 
 //Buscador por Atletas
 const searchButtonAthletes = document.getElementById("search-btn-atletas");
@@ -190,9 +187,8 @@ if (filtroAz) {
   });
 }
 
-function mostrarFicha(nombre) {
+function mostrarFicha(atletaUnico) {
   const tarjetasAtletas = document.querySelector("#tarjetasAtletas");
-  let atletaUnico = unSoloAtleta(data, nombre); //guardame los atletas filtrados
   console.log("soy atleta unico", atletaUnico);
   if (tarjetasAtletas != "") {
     //para no realizar peticiones si esta vacio
