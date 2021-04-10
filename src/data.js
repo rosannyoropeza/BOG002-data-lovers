@@ -101,9 +101,71 @@ export function listaEventos(eventosFiltrados){
   return ordenarAtletas;
 }
 
+/** Para obtener un solo atleta
+ * 
+ * @param {Array} data 
+ * @param {String} valor 
+ * @returns {Array}
+ */
+ export function unSoloAtleta (data,valor){
+  return data.reduce((acc,val)=>{
+    const nombreAtleta=val.name
+    if (nombreAtleta === valor) {
+        console.log("soy acumulador",val)
+      return val;
+    }
+  })
+}
 
-// export function stadistica
+// /** Para obtener estadisticas de mujeres y hombres que ganaron medallas en participantes en rio2016
+//   * 
+//   * @param {Array} data 
+//   * @returns {Array}
+//   */
+//   export function estadisticaHombreMujer(data){
+//   const dataMujer=data.map(genero=>{
+//       if(genero.gender=='F'){
+//         genero.gender=1
+//         return genero
+//       } 
+//       else(genero.gender=='M')
+//         genero.gender=0
+//         return genero
+      
+        
+//   }); console.log(dataMujer)
+  
+//   const mujer=dataMujer.reduce((acc,cur)=>{
+//       return acc+=cur.gender
+//     }, 0);
+//     console.log("soy mujer", mujer)
+//     return mujer 
+// } 
 
+
+/** Para obtener estadisticas de mujeres y hombres que ganaron medallas en participantes en rio2016
+  * 
+  * @param {Array} data 
+  * @returns {Array}
+  */
+ export function estadisticaHombreMujer(data){
+    const conteoDegenero=[]
+    //conteoDegenero['Atletas']='Medallas';
+    let mujer=0;
+    let hombre=0;
+
+    data.forEach((genero,i)=>{
+      if(genero.gender=='F'){
+        conteoDegenero['Mujeres']=mujer+=1 //genero.gender='F1'
+      }
+
+      if(genero.gender=='M'){
+        conteoDegenero['Hombres']=hombre+=1
+      }        
+    })
+
+    return conteoDegenero
+}
 
 
 
