@@ -163,10 +163,10 @@ function pintarAtletas(option) {
 //Funcion para pintar los Atletas
 function athletcWinner(ordenar) {
   let unicos = atletasUnicos(ordenar);
-  let searchAtletas = document.getElementById("search_atletas").value;
-  if (searchAtletas != "") {
+  let searchAtletas = document.getElementById("search_atletas");
+  if (searchAtletas !=null) {
     //para no realizar peticiones si esta vacio
-    unicos = filterAtletas(unicos, searchAtletas); //guardame los atletas filtrados
+    unicos = filterAtletas(unicos, searchAtletas.value); //guardame los atletas filtrados
   }
 
   let listaAtletas = document.getElementById("listaAtletas");
@@ -226,13 +226,13 @@ function crearContenedorDeportista(deportista) {
 // banderaPorPais(banderas,"Italy")
 
 // //Buscador por Atletas
-// const searchButtonAthletes = document.getElementById("search-btn-atletas");
-// if (searchButtonAthletes) {
-//   searchButtonAthletes.addEventListener("click", function () {
-//     //console.log(event.target.id)
-//     athletcWinner(data);
-//   });
-// }
+const searchButtonAthletes = document.getElementById("search-btn-atletas");
+if (searchButtonAthletes) {
+  searchButtonAthletes.addEventListener("click", function () {
+    //console.log(event.target.id)
+    athletcWinner(data);
+  });
+}
 
 //Para buscar atletas cada vez que presiono una tecla en el Search
 const searchAthletes = document.getElementById("search_atletas");
