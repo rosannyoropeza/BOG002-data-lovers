@@ -113,21 +113,21 @@ if (selectEventos) {
   });
 }
 
-function cintaVerde(data,nombreDelDeporte) {
-    let deportes = listaDeportes(data, nombreDelDeporte);
-    deportes.forEach(function (deporteAcrear) {
-       const cintaVerdeDiv=`
-             <div class = "cintaVerde">
-                <span class="icono"><img src=./assets/depOlimpicos/${deporteAcrear}.svg></span>
-                <span class="nombre"><p>${deporteAcrear}<p> </span>	
-            </div>
-        `
-    });
-    console.log(deportes)
-    return deportes
-}
+// function cintaVerde(data,nombreDelDeporte) {
+//     let deportes = listaDeportes(data, nombreDelDeporte);
+//     deportes.forEach(function (deporteAcrear) {
+//        const cintaVerdeDiv=`
+//              <div class = "cintaVerde">
+//                 <span class="icono"><img src=./assets/depOlimpicos/${deporteAcrear}.svg></span>
+//                 <span class="nombre"><p>${deporteAcrear}<p> </span>	
+//             </div>
+//         `
+//     });
+//     console.log(deportes)
+//     return deportes
+// }
 
-cintaVerde(data,"boxing")
+// cintaVerde(data,"boxing")
 
 function pintarAtletas(option) {
   let nombreDeporte= document.getElementById('search').value;
@@ -280,6 +280,7 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(drawRegionsMap);
 
 function drawRegionsMap() {
+
     var data = google.visualization.arrayToDataTable(paisesMedallas);
 
     var options = {};
@@ -322,36 +323,36 @@ function drawRegionsMap() {
 //             });
         
 // }
-function medallas(data,valor){
-    let result = [];
-    const elementExist = (data, nombre) => {
-        let i = 0;
-        while (i < data.length) {
-          if (data[i].name == nombre) return i;
-          i++;
-        }
-        return false;
-      }
+// function medallas(data,valor){
+//     let result = [];
+//     const elementExist = (data, nombre) => {
+//         let i = 0;
+//         while (i < data.length) {
+//           if (data[i].name == nombre) return i;
+//           i++;
+//         }
+//         return false;
+//       }
       
-      data.forEach((e) => {
-        let i = elementExist(result, e.name);
-        if (i === false) {
-          // Si no existe, creo agrego un nuevo objeto.
-          result.push({
-            "name": e.name,
-            "medal": [e.medal]
-          });
-        } else {
-          // Si el ya existe agrego el nuevo elemento a el array valor.
-          result[i].medal.push(e.medal);
-        }
-      });
-      //console.log(result);
-      return result
+//       data.forEach((e) => {
+//         let i = elementExist(result, e.name);
+//         if (i === false) {
+//           // Si no existe, creo agrego un nuevo objeto.
+//           result.push({
+//             "name": e.name,
+//             "medal": [e.medal]
+//           });
+//         } else {
+//           // Si el ya existe agrego el nuevo elemento a el array valor.
+//           result[i].medal.push(e.medal);
+//         }
+//       });
+//       //console.log(result);
+//       return result
 
 
-}
+// }
 
-medallas(data,"Sebastian Brendel")
+// medallas(data,"Sebastian Brendel")
 
 
