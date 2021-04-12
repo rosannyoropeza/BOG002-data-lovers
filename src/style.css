@@ -73,7 +73,7 @@ header .menu div a p{
 }
 #contenido .video{
     width: 100%;
-    height: 170px;
+    height: 20%;
 }
 #contenido h1{
     text-align: center;
@@ -86,7 +86,7 @@ header .menu div a p{
 }
 
 /* slider */
-#conteiner slider{
+#conteiner .slider{
     width: 90%;
     max-width: 900px;
     margin: auto;
@@ -98,6 +98,7 @@ header .menu div a p{
 #conteiner_slider{
     position: relative;
     overflow: hidden;
+    margin-top: 10px;
 }
 #slider{
     display:flex;
@@ -192,6 +193,7 @@ footer p{
     font-size: 12px;
     text-align: center;
 }
+
 
 /********** pantalla de deporte ************/
 main section{
@@ -305,6 +307,48 @@ main section .search-evento #select-eventos{
     margin-left: 5px;
 }
 
+@media screen and (min-width: 1280px){
+    /* pantalla incial */
+    header .menu div a{
+        display: inline-flex;
+    }
+    header .menu div a p{
+        font-size: 10px;
+        margin: auto;
+        padding: 10px;
+    }
+    #contenido .video{
+        height: 600px;
+        margin-bottom: 10px;
+    }
+    #contenido h1{
+        font-size: 40px;
+    }
+    #contenido p{
+        font-size: 20px;
+    }
+    .parrafoCita{
+        width: 80%;
+    }
+    #logosDeportes{
+        grid-template-columns: repeat(5,1fr);
+    }
+    main section h1{
+        font-size: 35px;
+    }
+    main section .search_deportes,
+    main section .search-evento{
+        width: 60%;
+    }
+    /* pantalla atletas */
+    #listaAtletas{
+        grid-template-columns: repeat(4,1fr);   
+    }
+    main section div.search_atletas,
+    main section div.select_ordenar{
+        width: 60%; 
+    }
+}
 /******** pantalla de atleta ***********/
 main section .search_atletas{
     width: 90%;
@@ -393,7 +437,7 @@ main section .select_ordenar #filtroAz{
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
-.tarjetaDeporteInner {
+.tarjetaDeporteInner{
     position: relative;
     width: 100%;
     height: 100%;
