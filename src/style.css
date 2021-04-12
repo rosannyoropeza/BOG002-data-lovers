@@ -13,7 +13,7 @@ body{
     overflow-x: hidden;
 } 
 
-/* menu inicial */
+/*********** menu inicial******************/
 
 header{
     background: #63B330;
@@ -56,6 +56,15 @@ header .menu div:hover{
 header .menu div a p{
     font-size: 12px;
     margin: 0;
+}
+
+.parrafoCita{
+    color: rgb(39, 38, 38);
+    /* background-color:#f0eeee; */
+    background-color:#dcf4ff;
+    border-radius: 8px;
+    margin: auto;
+    padding: 2px;
 }
 /* contenedor video y texto */
 #contenido {
@@ -184,7 +193,7 @@ footer p{
     text-align: center;
 }
 
-/* pantalla de deporte */
+/********** pantalla de deporte ************/
 main section{
     width: 100%;
     padding: 0px;
@@ -270,7 +279,33 @@ main section .search-evento #select-eventos{
     display: none;
 }
 
-/* pantalla de atleta */
+.deporteCintaVerde .cintaVerde {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.cintaVerde {
+    background: #a8c52f;
+    line-height: 40px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.deporteCintaVerde .cintaVerde .icono {
+    font-size: 36px;
+    display: inline-block;
+    color: #FFFFFF;
+    float: left;
+    line-height: 40px;
+}
+
+.deporteCintaVerde .cintaVerde .nombre {
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+/******** pantalla de atleta ***********/
 main section .search_atletas{
     width: 90%;
     /* background-color: #6d6a6a; */
@@ -339,7 +374,8 @@ main section .select_ordenar #filtroAz{
     border-radius:5%;
     cursor: pointer;
 }
-/*Aqui comienza la seccion Atletas*/
+
+/************Aqui comienza la seccion Atletas***********/
 
 #listaAtletas{
     margin: 10px;
@@ -349,12 +385,175 @@ main section .select_ordenar #filtroAz{
     grid-gap: 14px;
 }
 
-.imagenDeportista{
-    max-width: 100px;
-    height:100px;
-    border-radius: 50%;
+.tarjetaDeporte{
+    background-color: transparent;
+    width: 230px;
+    height: 270px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
-#listaAtletas .deportista h3{
-    overflow-wrap: break-word;
-    text-align: center;
+
+.tarjetaDeporteInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+.tarjetaDeporte:hover .tarjetaDeporteInner{
+    transform: rotateY(180deg);
+}
+
+.tarjetaDeporteFrontal, .tarjetaDeporteReverso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  .tarjetaDeporteFrontal{
+    background-color: #bbb;
+    color: black;
+    text-align: center; 
+  }
+  
+  .tarjetaDeporteReverso {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    /* grid-gap: 14px; */
+    text-align: center; 
+    background-color: #305c14;
+    color: white;
+    transform: rotateY(180deg);
+}
+  
+.deportistas img{
+    width: 100%;
+}
+
+.imagenDeportista{
+    width: 170px;
+    height:170px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.imagenDeportistaReverso{
+    width:80px;
+    height:80px;
+    /* border-radius:50%; */
+    object-fit: fill;
+    grid-row:1/span 2;
+    grid-column:4/span 2; 
+}
+
+.banderaPais{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit: fill;
+    grid-row:2/span 1;
+    grid-column:1/span 3; 
+}
+
+.medallero{
+    grid-row:4/span 1;
+    grid-column:4/span 2; 
 } 
+
+.resultadoMedallero{
+    font-size: 10px;
+    grid-row:5/span 1;
+    grid-column:4/span 2; 
+}
+
+.medallaOro{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:3/span 1;  */
+}
+
+.medallaPlata{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:4/span 1;  */
+}
+
+.medallaBronce{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:5/span 1;  */
+}
+#nombreAtleta{
+    grid-row:1/span 1;
+    grid-column:1/span 3;
+
+}
+.team{
+    grid-row:3/span 1;
+    grid-column:1/span 3;
+}
+
+.medalla{
+    grid-row:3/span 1;
+    grid-column:4/span 2;
+}
+.sport{
+    grid-row:4/span 1;
+    grid-column:1/span 3;
+}
+
+
+div .deportista{
+    width: 230px;
+    height: 270px;
+    text-align: center;
+    position: relativa;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    overflow:hidden;
+    border-radius:16px;
+    box-shadow:0px 3px 18px 3px rgba(0,0,0,0.2);
+
+}
+
+div .deportista:hover{
+   transform: translateY(-15px);
+   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); 
+}
+
+div .atletaFicha{
+    width: 230px;
+    height: 270px;
+    text-align: center;
+    position: relativa;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    overflow:hidden;
+    border-radius:16px;
+    box-shadow:0px 3px 18px 3px rgba(0,0,0,0.2);
+}
+
+/*********Aqui comienza pantalla estadistica*******/
+#chart_wrap {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow:hidden;
+}
+
+#piechart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:500px;
+}
+

@@ -61,15 +61,15 @@ export function listaEventos(eventosFiltrados){
 /** Para obtener los atletas y crear su ficha
  * 
  * @param {Array} data 
- * @param {String} valor 
+ * @param {String} nombreAtleta
  * @returns {Array}
  */
- export function filterAtletas(data,valor){
-  return  data.filter((atletas)=> atletas.name.toUpperCase().startsWith(valor.toUpperCase()) || atletas.team.toUpperCase().startsWith(valor.toUpperCase()))
+ export function filterAtletas(data,nombreAtleta){
+  return  data.filter((atletas)=> atletas.name.toUpperCase().startsWith(nombreAtleta.toUpperCase()) || atletas.team.toUpperCase().startsWith(nombreAtleta.toUpperCase()))
 }
 
 
-/** Para obtener los atletas no duplicados
+/** Para obtener los atletas no duplicado
  * 
  * @param {Array} data 
  * @param {String} valor 
@@ -101,88 +101,96 @@ export function listaEventos(eventosFiltrados){
   return ordenarAtletas;
 }
 
-
-// export function stadistica
-
-
-
-
-// export function banderas(){
-
-// }
-
-
-
-// funcion para filtrar deporte.
-// export function filtradoDeportistas(dataOriginal){
-//   const deporteFiltrado= dataOriginal.filter(function(word){
-//     if(word.sport===nombreDeporte){
-    
-//       console.log(word.name, word.team)
-         
-//     } 
+// /** Para obtener un solo atleta
+//  * 
+//  * @param {Array} data 
+//  * @param {String} valor 
+//  * @returns {Array}
+//  */
+//  export function unSoloAtleta (data,valor){
+//   return data.reduce((acc,val)=>{
+//     const nombreAtleta=val.name
+//     if (nombreAtleta === valor) {
+//         console.log("soy acumulador",val)
+//       return val;
+//     }
 //   })
-//   return deporteFiltrado
 // }
 
+// /** Para obtener estadisticas de mujeres y hombres que ganaron medallas en participantes en rio2016
+//   * 
+//   * @param {Array} data 
+//   * @returns {Array}
+//   */
+//   export function estadisticaHombreMujer(data){
+//   const dataMujer=data.map(genero=>{
+//       if(genero.gender=='F'){
+//         genero.gender=1
+//         return genero
+//       } 
+//       else(genero.gender=='M')
+//         genero.gender=0
+//         return genero
+      
+        
+//   }); console.log(dataMujer)
+  
+//   const mujer=dataMujer.reduce((acc,cur)=>{
+//       return acc+=cur.gender
+//     }, 0);
+//     console.log("soy mujer", mujer)
+//     return mujer 
+// } 
 
-// export const data = {
-//   deporte:(nombreDeporte) => {
-//     let resultado = listaDeportes().filter(word => word === nombreDeporte)
-//     console.log('vengo de data', resultado)
+
+/** Para obtener estadisticas de mujeres y hombres que ganaron medallas en participantes en rio2016
+  * 
+  * @param {Array} data 
+  * @returns {Array}
+  */
+ export function estadisticaHombreMujer(data){
+    const conteoDegenero=[]
+    //conteoDegenero['Atletas']='Medallas';
+    let mujer=0;
+    let hombre=0;
+
+    data.forEach((genero)=>{
+      switch (genero.gender) {
+        case 'F':
+          conteoDegenero['Mujeres']=mujer+=1     
+          break;
+      
+        case 'M':
+          conteoDegenero['Hombres']=hombre+=1    
+          break;
+        default:
+          break;
+      }
+    })
+
+    return conteoDegenero
+}
+
+
+
+// export function banderaPais(banderas,pais){
+//   //traer todas las banderas que coincidan con el pais
+//   var result=banderas.filter(banderaPais=> banderaPais.team==pais);  
+//    for (let i = 0; i < result.length; i++) {
+//        console.log(bandera[i].PAIS)
 //   }
-// }
-// import data  from './data/athletes/atletasImg.js';
+
+//  for (let i = 0; i < banderas.length; i++) {
+//        let codigo_pais =  banderas[i].noc;
+//        let bandera_url =  banderas[i].url;
+//        let elem  = document.getElementById(codigo_pais)
+
+//        if (codigo_pais[0]==pais){
+//         console.log(codigo_pais)
+//        }
+//    }   
+
+// };
 
 
-// export const data= {
-//   deportes:function(sport){
-//     return fetch("./data/athletes/atletasImg.json")
-//       .then(function(response){
-//         return response.json()
-//       })
-//       .then(function(data){
-//         let newSport=[]
-//         data.forEach(function(deporte){
-//           newSport.push(deporte.sport)
-//         })
-//         const dataArr= new Set(newSport)
-//         let result= [...dataArr]
-//         return result
-//       })
-//   },
-// }
-
-// export const banderas = fetch("./data/banderas.json")
-//   .then(function (response){
-//     console.log(response);
-//   return response.json()
-// })
-// .then(function(data){
-//   //traer todas las banderas que tengan paises que inician con A
-//   var result=data.filter(bandera=> bandera.NOC.startsWith("A"));  
-//   for (let i = 0; i < result.length; i++) {
-//       console.log(data[i].PAIS)
-//   }
-
-//   for (let i = 0; i < data.length; i++) {
-
-
-//       let codigo_pais =  data[i].NOC;
-//       let bandera_url =  data[i].URL;
-//       let elem  = document.getElementById(codigo_pais)
-
-//       if (codigo_pais[0]=='A')
-//       console.log(codigo_pais)
-
-//       var imagen = document.createElement("img");
-//       imagen.src = bandera_url;
-//       imagen.width=32;
-//       imagen.height=32;
-
-//       if (elem)
-//       elem.prepend(imagen);
-//   }
-
-// });;
 
