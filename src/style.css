@@ -86,7 +86,7 @@ header .menu div a p{
 }
 
 /* slider */
-#conteiner .slider{
+#container .slider{
     width: 90%;
     max-width: 900px;
     margin: auto;
@@ -95,7 +95,7 @@ header .menu div a p{
                 0 15px 50px;
     
 }
-#conteiner_slider{
+#container_slider{
     position: relative;
     overflow: hidden;
     margin-top: 10px;
