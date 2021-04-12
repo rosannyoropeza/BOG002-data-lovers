@@ -33,7 +33,13 @@ function pintarDeportes(deporte=''){
 
 function athletcWinner(ordenar){
     let unicos=atletasUnicos(ordenar)
-    let searchAtletas = document.getElementById("search_atletas").value;
+    let searchAtletas = document.getElementById("search_atletas")
+    
+    if(searchAtletas){
+        searchAtletas = searchAtletas.value
+    } else{
+        return 
+    }
         if(searchAtletas!=""){//para no realizar peticiones si esta vacio
             unicos=filterAtletas(unicos,searchAtletas)//guardame los atletas filtrados
         }    
@@ -45,7 +51,6 @@ function athletcWinner(ordenar){
                 unicos.forEach(function(deportistas){
                     const contenedorDeportista= document.createElement('div')   
                     contenedorDeportista.classList.add('deportista')
-                    contenedorDeportista.setAttribute('id',deportistas.name)
                     const imagen= document.createElement('img')
                     imagen.classList.add('imagenDeportista')
                     imagen.setAttribute('src',deportistas.image)
@@ -158,7 +163,45 @@ function mostrarFicha(nombre){
     console.log("soy nombre", nombre)
 }
 
- 
+// Realizar grafica de mapamundi
+const objPaises={}
+
+data.forEach((pais) => {
+    const team = pais.team.split('-')
+
+    if(objPaises[team[0]]){
+        objPaises[team[0]] += 1
+    } else { /// si el pais no existe 
+        objPaises[team[0]] = 1
+    }
+})
+const paisesMedallas = Object.entries(objPaises)
+
+paisesMedallas.unshift(['Pais', 'Medallas'])
+
+
+// grafica de geoChart
+
+google.charts.load('current', {
+    'packages':['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+});
+google.charts.setOnLoadCallback(drawRegionsMap);
+
+function drawRegionsMap() {
+    console.log('mapa')
+    var data = google.visualization.arrayToDataTable(paisesMedallas);
+
+    var options = {};
+
+    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+    chart.draw(data, options);
+}
+
+
 //     buttonAthletes.addEventListener("click",function(event){
 //            console.log("s6y y6",event.target.id)
 //          let nombreAtleta = event.target.id
