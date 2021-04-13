@@ -25,8 +25,6 @@ Después de haber obtenido el feedback del prototipo inicial, se pasó a la sigu
 
 *** tests de usabilidad***
 
-Test de Usabilidad:
-
 Para la realización del ***test de usabilidad*** decidimos presentar nuestro proyecto a tres(03) usuarios y de acuerdo a su interacción con el producto, recogimos las siguientes recomendaciones para mejorar el diseño y la experiencia de usuario.
 
 1.- En el ***módulo deportes de la página web***, indicaron que al realizar una búsqueda referente a un deporte en específico, este mostraba como resultado todos las disciplinas que participaron en los Juegos de Río 2016. 
