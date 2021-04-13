@@ -153,6 +153,7 @@ function crearContenedorDeportista(deportista) {
 
         <div class="tarjetaDeporteReverso">
           <div id="nombreAtleta"><h4>${deportista.name}</h4></div>
+          <img class="imagenDeportistaReverso" src=${deportista.image} onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU';">
           <img class="banderaPais" src=${bandera}>
           <p class="team">${deportista.team}</p> 
           <p class="sport"> ${deportista.sport}</p>

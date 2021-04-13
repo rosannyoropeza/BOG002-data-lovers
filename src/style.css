@@ -5,7 +5,7 @@
     text-decoration: none;
 }
 body{
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Oswald', sans-serif;
@@ -67,6 +67,9 @@ header .menu div a p{
     padding: 2px;
 }
 /* contenedor video y texto */
+.content{
+    
+}
 #contenido {
     /*margin: 20px;*/
     box-sizing: content-box;
@@ -264,7 +267,6 @@ main section .search-evento #select-eventos{
     cursor: pointer;
 }
 #logosDeportes{
-    margin: 10px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,1fr);
@@ -307,6 +309,20 @@ main section .search-evento #select-eventos{
     margin-left: 5px;
 }
 
+@media screen and (min-width: 780px){ 
+    .content, 
+    #logosDeportes {
+        width: 1220px;
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    #contenido .video {
+        height: 450px;
+    }
+    div#listaAtletas{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
 @media screen and (min-width: 1280px){
     /* pantalla incial */
     header .menu div a{
@@ -346,8 +362,11 @@ main section .search-evento #select-eventos{
         width: 60%;
     }
     /* pantalla atletas */
-    #listaAtletas{
+    div#listaAtletas{
         grid-template-columns: repeat(4,1fr);   
+        width: 1220px;
+        max-width: 80%;
+        margin: 20px auto;
     }
     main section div.search_atletas,
     main section div.select_ordenar{
@@ -429,12 +448,13 @@ main section .select_ordenar #filtroAz{
 #listaAtletas{
     margin: 10px;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
     grid-template-rows: repeat(1,1fr);
     grid-gap: 14px;
 }
 
 .tarjetaDeporte{
+    margin: 0 auto;
     background-color: transparent;
     width: 230px;
     height: 270px;
