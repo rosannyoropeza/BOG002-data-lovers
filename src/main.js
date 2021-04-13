@@ -18,7 +18,8 @@ import {
 
 function principal() {
   pintarDeportes();
-  athletcWinner(data)
+      athletcWinner(data)
+  
 }
 principal();
 
@@ -113,50 +114,70 @@ if (selectEventos) {
   });
 }
 
-// function cintaVerde(data,nombreDelDeporte) {
-//     let deportes = listaDeportes(data, nombreDelDeporte);
-//     deportes.forEach(function (deporteAcrear) {
-//        const cintaVerdeDiv=`
-//              <div class = "cintaVerde">
-//                 <span class="icono"><img src=./assets/depOlimpicos/${deporteAcrear}.svg></span>
-//                 <span class="nombre"><p>${deporteAcrear}<p> </span>	
-//             </div>
-//         `
-//     });
-//     console.log(deportes)
-//     return deportes
-// }
-
-// cintaVerde(data,"boxing")
-
 function pintarAtletas(option) {
+  let tablaEvento=document.getElementById("tablaEvento2")
   let nombreDeporte= document.getElementById('search').value;
-  const deporteCintaVerde=document.getElementsByClassName("deporteCintaVerde");
   const filtradoPorEvento = filterEvento(data, option);
   const listaDeportistas = document.getElementById("listaDeportistas");
-  listaDeportistas.innerHTML = ""; // Vaciamos la lista para reiniciar el contenido y evitar duplicados
-  filtradoPorEvento.forEach((nombre) => {
-    let tabla   = document.createElement("table");
-    let tblBody = document.createElement("tbody");
-    let hilera = document.createElement("tr")
-    let celda = document.createElement("td");
-    let textoCelda = document.createTextNode(`${nombre.name} - ${nombre.event}`);
-    celda.appendChild(textoCelda);
-    hilera.appendChild(celda);
-    tblBody.appendChild(hilera);
-    tabla.appendChild(tblBody);
-    listaDeportistas.appendChild(tabla);
-    // tabla.setAttribute("border", "2");
+ 
+  console.log(filtradoPorEvento)
+
+
+    filtradoPorEvento.forEach((evento,i) => {
+      if (evento.medal ==="Gold"){
+        filtradoPorEvento[i].posicion=1
+      }
+      if (evento.medal ==="Silver"){
+        filtradoPorEvento[i].posicion=2
+      }
+      if (evento.medal ==="Bronze"){
+        filtradoPorEvento[i].posicion=3
+      }
     })
-    //  const lista = document.createElement("p");
-    //  const texto = document.createTextNode(`${nombre.name} - ${nombre.event}`);
-    //  lista.appendChild(texto);
-    // //  deporteCintaVerde.insertAdjacentElement('beforeend', divCintaVerde);
-    //  listaDeportistas.insertAdjacentElement("beforeend", tabla);
-    // });
-    // listaDeportistas.classList.remove("hide");
-    return listaDeportistas
+  
+    filtradoPorEvento.sort((a,b)=> a.posicion > b.posicion ? 1 : -1);
+
+
+
+  filtradoPorEvento.forEach((evento) => {
+    const contenedorAtleta = crearContenedorAtleta(evento);
+    console.log(contenedorAtleta)
+    tablaEvento.insertAdjacentHTML('beforeend', contenedorAtleta);
+  })
+  listaDeportistas.classList.remove("hide");
+  return listaDeportistas
 }
+
+
+function crearContenedorAtleta(evento) {
+  const tabla = ` 
+    <tr>
+        <td>${evento.posicion}</td>
+        <td>${evento.name}</td>
+        <td>${evento.medal}</td>
+    </tr>    
+    `;
+  return tabla;
+} 
+
+function crearDivCintaVerde(nombre) {
+  const nombreDeporte = document.getElementById("search").value;
+  let eventos = listaDeportes(data, deporte);
+  eventos.forEach(function (disciplina) {
+  
+  const card = `  
+  <div class ="deporteCintaVerde">
+    <div id="deporteCintaVerde">
+        <div class = "cintaVerde">
+          <span class="icono"><img src=./assets/depOlimpicos/${disciplina}.svg></span>
+          <span class="nombre"><p>${disciplina}<p></span>	
+        </div>
+        </div>
+    </div>
+    `;
+  });
+  return card;
+} 
 
 /***********Aqui comienza la pantalla de Atletas***********/
 
@@ -180,7 +201,8 @@ function athletcWinner(ordenar) {
 }
 
 function crearContenedorDeportista(deportista) {
-    
+  let bandera=banderaPorPais(banderas,deportista.team)
+  console.log("soy bandera",bandera)
     const card = `
     <div class="tarjetaDeporte">
       <div class="tarjetaDeporteInner">
@@ -192,9 +214,9 @@ function crearContenedorDeportista(deportista) {
         </div>
 
         <div class="tarjetaDeporteReverso">
-            <div id="nombreAtleta"><h4 >${deportista.name}</h4></div>
+          <div id="nombreAtleta"><h4>${deportista.name}</h4></div>
           <img class="imagenDeportistaReverso" src=${deportista.image} onError="src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU'">
-          <img class="banderaPais" src="./assets/logos/logo-rio-2016.png">
+          <img class="banderaPais" src=${bandera}>
           <p class="team">${deportista.team}<p> 
           <p class="sport"> ${deportista.sport}</p>
           <p class="medalla">Medal</p>
@@ -211,17 +233,19 @@ function crearContenedorDeportista(deportista) {
     </div>
     `;
 
-    return card;
+  return card;
 }
 
 function banderaPorPais(dataBandera,pais) {
-     dataBandera.forEach(function(valor,i) {
-          console.log(dataBandera[i])
-           if (valor[i].noc===pais){
-           return valor[i] 
-         }
-      });
-  }
+  let bandera=""
+  dataBandera.forEach(function(objBandera,i) {
+      if (objBandera.team===pais){
+        bandera=objBandera.url
+      }
+  });
+  console.log(bandera)
+  return bandera
+}
 
 // banderaPorPais(banderas,"Italy")
 
@@ -291,70 +315,5 @@ if (typeof google !== 'undefined') {
       chart.draw(data, options);
   }
 }
-
-
-//     buttonAthletes.addEventListener("click",function(event){
-//            console.log("s6y y6",event.target.id)
-//          let nombreAtleta = event.target.id
-//          //let banderasParticipantes=filtradoBanderas(banderas,idAtletas)
-//  //             const atletaUnico=filterAtletas(data,nombreAtleta)
-// //             console.log(atletaUnico)
-//           pintarAtletasGanadores()
-// //          })
- 
-
-// function pintarAtletasGanadores(){
-//     const tarjetasAtletas=document.querySelector("tarjetasAtletas")
-//     const atletaUnico=filterAtletas(data,"Mariana")
-//     console.log(atletaUnico)
-// //     const banderaPais=filterBanderas(banderas,"colombia")
-// //     console.log(banderaPais)
-//             atletaUnico.forEach(function(deportistas){
-//             const contenedorAtletaUnico= document.createElement('div')   
-//             contenedorAtletaUnico.classList.add('atletaFicha')
-//             const imagen= document.createElement('img')
-//             imagen.classList.add('imagenDeportista')
-//             imagen.setAttribute('src',deportistas.image)
-//             imagen.setAttribute('onError','this.src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU"')
-//             const h3=document.createElement('h3')
-//             const texto=document.createTextNode(`${deportistas.name}`)
-//             h3.appendChild(texto)
-//             contenedorAtletaUnico.insertAdjacentElement('beforeend',imagen)
-//             contenedorAtletaUnico.insertAdjacentElement('beforeend',h3)
-//             tarjetasAtletas.insertAdjacentElement('beforeend',contenedorAtletaUnico)
-//             });
-        
-// }
-// function medallas(data,valor){
-//     let result = [];
-//     const elementExist = (data, nombre) => {
-//         let i = 0;
-//         while (i < data.length) {
-//           if (data[i].name == nombre) return i;
-//           i++;
-//         }
-//         return false;
-//       }
-      
-//       data.forEach((e) => {
-//         let i = elementExist(result, e.name);
-//         if (i === false) {
-//           // Si no existe, creo agrego un nuevo objeto.
-//           result.push({
-//             "name": e.name,
-//             "medal": [e.medal]
-//           });
-//         } else {
-//           // Si el ya existe agrego el nuevo elemento a el array valor.
-//           result[i].medal.push(e.medal);
-//         }
-//       });
-//       //console.log(result);
-//       return result
-
-
-// }
-
-// medallas(data,"Sebastian Brendel")
 
 
