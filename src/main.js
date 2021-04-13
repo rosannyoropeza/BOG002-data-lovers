@@ -214,14 +214,14 @@ function crearContenedorDeportista(deportista) {
     return card;
 }
 
-//  function banderaPorPais(dataBandera,pais) {
-//     dataBandera.forEach(function(valor,i) {
-//          console.log()
-//          if (valor[i].noc===pais){
-//           return valor[i] 
-//         }
-//      });
-//  }
+function banderaPorPais(dataBandera,pais) {
+     dataBandera.forEach(function(valor,i) {
+          console.log(dataBandera[i])
+           if (valor[i].noc===pais){
+           return valor[i] 
+         }
+      });
+  }
 
 // banderaPorPais(banderas,"Italy")
 
@@ -270,24 +270,26 @@ paisesMedallas.unshift(['Pais', 'Medallas'])
 
 
 // grafica de geoChart
+if (typeof google !== 'undefined') {
+    
+    google.charts.load('current', {
+      'packages':['geochart'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+  });
+  google.charts.setOnLoadCallback(drawRegionsMap);
 
-google.charts.load('current', {
-    'packages':['geochart'],
-    // Note: you will need to get a mapsApiKey for your project.
-    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-});
-google.charts.setOnLoadCallback(drawRegionsMap);
+  function drawRegionsMap() {
 
-function drawRegionsMap() {
+      var data = google.visualization.arrayToDataTable(paisesMedallas);
 
-    var data = google.visualization.arrayToDataTable(paisesMedallas);
+      var options = {};
 
-    var options = {};
+      var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
-    var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-    chart.draw(data, options);
+      chart.draw(data, options);
+  }
 }
 
 
