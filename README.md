@@ -73,22 +73,22 @@ El objetivo principal de este proyecto es que aprendas a diseñar y construir un
 - [x] Manipulación dinámica del DOM. (appendChild |createElement |      createTextNode| innerHTML | textContent | etc.)
 ### JavaScript
 
-- [] Uso de condicionales (if-else | switch | operador ternario)
+- [x] Uso de condicionales (if-else | switch | operador ternario)
 - [] Uso de bucles (for | for..in | for..of | while)
-- [] Uso de funciones (parámetros | argumentos | valor de retorno)
-- [] Manipular arrays (filter | map | sort | reduce)
-- [] Manipular objects (key | value)
-- [] Uso ES modules (import | export)
-- [] Diferenciar entre expression y statements.
-- [] Diferenciar entre tipos de datos primitivos y no primitivos.
+- [x] Uso de funciones (parámetros | argumentos | valor de retorno)
+- [x] Manipular arrays (filter | map | sort | reduce)
+- [x] Manipular objects (key | value)
+- [x] Uso ES modules (import | export)
+- [x] Diferenciar entre expression y statements.
+- [x] Diferenciar entre tipos de datos primitivos y no primitivos.
 ### Testing
 
 - [x] Testeo unitario.
 ### Estructura del código y guía de estilo
 
-- [ ] Organizar y dividir el código en módulos (Modularización)
+- [x] Organizar y dividir el código en módulos (Modularización)
 - [ ] Uso de identificadores descriptivos (Nomenclatura | Semántica)
-- [ ] Uso de linter (ESLINT)
+- [x] Uso de linter (ESLINT)
 
 ### Git y GitHub
 
