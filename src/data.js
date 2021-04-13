@@ -148,28 +148,28 @@ export function listaEventos(eventosFiltrados){
   * @param {Array} data 
   * @returns {Array}
   */
- export function estadisticaHombreMujer(data){
-    const conteoDegenero=[]
-    //conteoDegenero['Atletas']='Medallas';
-    let mujer=0;
-    let hombre=0;
+//  export function estadisticaHombreMujer(data){
+//     const conteoDegenero=[]
+//     //conteoDegenero['Atletas']='Medallas';
+//     let mujer=0;
+//     let hombre=0;
 
-    data.forEach((genero)=>{
-      switch (genero.gender) {
-        case 'F':
-          conteoDegenero['Mujeres']=mujer+=1     
-          break;
+//     data.forEach((genero)=>{
+//       switch (genero.gender) {
+//         case 'F':
+//           conteoDegenero['Mujeres']=mujer+=1     
+//           break;
       
-        case 'M':
-          conteoDegenero['Hombres']=hombre+=1    
-          break;
-        default:
-          break;
-      }
-    })
+//         case 'M':
+//           conteoDegenero['Hombres']=hombre+=1    
+//           break;
+//         default:
+//           break;
+//       }
+//     })
 
-    return conteoDegenero
-}
+//     return conteoDegenero
+// }
 
 
 

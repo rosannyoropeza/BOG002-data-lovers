@@ -12,7 +12,7 @@ import {
   filterAtletas,
   ordenar,
   atletasUnicos,
-  estadisticaHombreMujer,
+  google,
 //   banderaPais,
 } from "./data.js";
 
@@ -89,7 +89,6 @@ if (selectEventos) {
 
 function pintarAtletas(option) {
   let tablaEvento=document.getElementById("tablaEvento2")
-  let nombreDeporte= document.getElementById('search').value;
   const filtradoPorEvento = filterEvento(data, option);
   const listaDeportistas = document.getElementById("listaDeportistas");
  
@@ -126,25 +125,6 @@ function crearContenedorAtleta(evento) {
   return tabla;
 } 
 
-// function crearDivCintaVerde(nombre) {
-//   const nombreDeporte = document.getElementById("search").value;
-//   let eventos = listaDeportes(data, deporte);
-//   eventos.forEach(function (disciplina) {
-  
-//   const card = `  
-//   <div class ="deporteCintaVerde">
-//     <div id="deporteCintaVerde">
-//         <div class = "cintaVerde">
-//           <span class="icono"><img src=./assets/depOlimpicos/${disciplina}.svg></span>
-//           <span class="nombre"><p>${disciplina}<p></span>	
-//         </div>
-//         </div>
-//     </div>
-//     `;
-//   });
-//   return card;
-// } 
-
 /***********Aqui comienza la pantalla de Atletas***********/
 
 //Funcion para pintar los Atletas
@@ -168,7 +148,6 @@ function athletcWinner(ordenar) {
 
 function crearContenedorDeportista(deportista) {
   let bandera=banderaPorPais(banderas,deportista.team)
-  console.log("soy bandera",bandera)
     const card = `
     <div class="tarjetaDeporte">
       <div class="tarjetaDeporteInner">
@@ -204,12 +183,11 @@ function crearContenedorDeportista(deportista) {
 
 function banderaPorPais(dataBandera,pais) {
   let bandera=""
-  dataBandera.forEach(function(objBandera,i) {
+  dataBandera.forEach(function(objBandera) {
       if (objBandera.team===pais){
         bandera=objBandera.url
       }
   });
-  console.log(bandera)
   return bandera
 }
 
@@ -260,7 +238,7 @@ paisesMedallas.unshift(['Pais', 'Medallas'])
 
 
 // grafica de geoChart
-if (typeof google !== 'undefined') {
+//f (typeof google !== 'undefined') {
     
     google.charts.load('current', {
       'packages':['geochart'],
@@ -280,6 +258,6 @@ if (typeof google !== 'undefined') {
 
       chart.draw(data, options);
   }
-}
+//}
 
 
