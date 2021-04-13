@@ -8,10 +8,10 @@ Y nace de la necesidad de los usuarios de conocer información relevante sobre l
  Adicionalmente, para nuestros usuarios es importante saber los nombres y la cantidad de medallas ganadas por cada país.  Asimismo,  requieren información sobre quiénes son los atletas que ganaron medallas en diferentes disciplinas y cuantas fueron.Y  por último, es importante para los usuarios conocer cuántos hombres y mujeres participaron en los ***Juegos Olímpicos de Río de Janeiro 2016***.
 
 Para conocer nuestras historias de usuarios pueden visitar el siguiente enlace de Trello, donde encontrarás las cuatro (4) historias que fueron desarrolladas con sus respectivos criterios de aceptación, definidas de acuerdo a las necesidades de los usuario.
-[enlace en línea](https://trello.com/b/wL31ojza/dl-juegos-olimpicos)
+[Enlace a Trello](https://trello.com/b/wL31ojza/dl-juegos-olimpicos)
 
 
-*** Diseño de la página web***
+## Diseño de la página web
 
 Para el diseño de la página web, se inició con un ***prototipo de baja  fidelidad***, en el cual se realizo un boceto en papel y lápiz. Como se muestra a continuación. 
 
@@ -21,9 +21,9 @@ Para esta etapa, se plasmaron las ideas que de acuerdo  a los requerimientos de 
 
 Después de haber obtenido el feedback del prototipo inicial, se pasó a la siguiente etapa ***prototipo de alta fidelidad***, donde representamos la solución de las historias de usuario a través del editor de gráficos vectoriales y creación de prototipos ***Figma***, en esta etapa se eligieron los recursos visuales a usar, el tipo y fuente de letras que se emplearon, los códigos de colores para crear las combinaciones implementadas, se seleccionó la librería de ***Google Charts*** para la creación de las estadísticas y se profundizó en las funcionalidades  para ser más  agradable a la vista la interfaz.
 
-[enlace en línea](https://www.figma.com/file/Nz2chBY4YhgOEPnmEMtbAN/JUEGOS-OLIMPICOS--RIO-2016?node-id=277%3A5)
+[Enlace a Figma](https://www.figma.com/file/Nz2chBY4YhgOEPnmEMtbAN/JUEGOS-OLIMPICOS--RIO-2016?node-id=277%3A5)
 
-*** tests de usabilidad***
+## Tests de usabilidad
 
 Para la realización del ***test de usabilidad*** decidimos presentar nuestro proyecto a tres(03) usuarios y de acuerdo a su interacción con el producto, recogimos las siguientes recomendaciones para mejorar el diseño y la experiencia de usuario.
 

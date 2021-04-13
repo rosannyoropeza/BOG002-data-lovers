@@ -331,8 +331,13 @@ main section .search-evento #select-eventos{
         width: 80%;
     }
     #logosDeportes{
-        grid-template-columns: repeat(5,1fr);
+        grid-template-columns: repeat(6,1fr);
     }
+
+    .tipoDeporte img{
+        width: 60%;
+    }
+
     main section h1{
         font-size: 35px;
     }

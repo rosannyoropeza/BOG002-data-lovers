@@ -18,8 +18,7 @@ import {
 
 function principal() {
   pintarDeportes();
-      athletcWinner(data)
-  
+  athletcWinner(data);
 }
 principal();
 
@@ -72,32 +71,6 @@ if (buscarDeporte) {
   });
 }
 
-// //Para crear el crear el evento al logo del deporte
-// const buscarPorElLogoDeporte= document.getElementsByClassName("tipoDeporte")
-// buscarPorElLogoDeporte.addEventListener("click", function () {
-//     let buscarDeportePorLogo=""
-//     for (var i = 0; i < tipoDeporte.length; i++) {
-//         console.log(i)
-       
-//      }
-   
-    // const eventos = filterData(data,valor);
-    // let arrayEventos = listaEventos(eventosFiltrados);
-    // const selectorEventos = document.getElementById("select-eventos");
-    // selectorEventos.innerHTML = ""; // Vaciamos la lista para reiniciar el contenido y evitar duplicados
-    // const opciones = document.createElement("option");
-    // const eventos = document.createTextNode("Buscar por evento");
-    // opciones.appendChild(eventos);
-    // selectorEventos.insertAdjacentElement("beforeend", opciones);
-    // arrayEventos.forEach((superFiltrado) => {
-    //   const opciones = document.createElement("option");
-    //   const eventos = document.createTextNode(`${superFiltrado}`);
-
-    //   opciones.appendChild(eventos);
-    //   selectorEventos.insertAdjacentElement("beforeend", opciones);
-//   });
-
-
 //Para crear el evento de busqueda cada vez que presiono una tecla
 let search = document.getElementById("search");
 if (search) {
@@ -120,9 +93,6 @@ function pintarAtletas(option) {
   const filtradoPorEvento = filterEvento(data, option);
   const listaDeportistas = document.getElementById("listaDeportistas");
  
-  console.log(filtradoPorEvento)
-
-
     filtradoPorEvento.forEach((evento,i) => {
       if (evento.medal ==="Gold"){
         filtradoPorEvento[i].posicion=1
@@ -137,17 +107,13 @@ function pintarAtletas(option) {
   
     filtradoPorEvento.sort((a,b)=> a.posicion > b.posicion ? 1 : -1);
 
-
-
   filtradoPorEvento.forEach((evento) => {
     const contenedorAtleta = crearContenedorAtleta(evento);
-    console.log(contenedorAtleta)
     tablaEvento.insertAdjacentHTML('beforeend', contenedorAtleta);
   })
   listaDeportistas.classList.remove("hide");
   return listaDeportistas
 }
-
 
 function crearContenedorAtleta(evento) {
   const tabla = ` 
@@ -160,24 +126,24 @@ function crearContenedorAtleta(evento) {
   return tabla;
 } 
 
-function crearDivCintaVerde(nombre) {
-  const nombreDeporte = document.getElementById("search").value;
-  let eventos = listaDeportes(data, deporte);
-  eventos.forEach(function (disciplina) {
+// function crearDivCintaVerde(nombre) {
+//   const nombreDeporte = document.getElementById("search").value;
+//   let eventos = listaDeportes(data, deporte);
+//   eventos.forEach(function (disciplina) {
   
-  const card = `  
-  <div class ="deporteCintaVerde">
-    <div id="deporteCintaVerde">
-        <div class = "cintaVerde">
-          <span class="icono"><img src=./assets/depOlimpicos/${disciplina}.svg></span>
-          <span class="nombre"><p>${disciplina}<p></span>	
-        </div>
-        </div>
-    </div>
-    `;
-  });
-  return card;
-} 
+//   const card = `  
+//   <div class ="deporteCintaVerde">
+//     <div id="deporteCintaVerde">
+//         <div class = "cintaVerde">
+//           <span class="icono"><img src=./assets/depOlimpicos/${disciplina}.svg></span>
+//           <span class="nombre"><p>${disciplina}<p></span>	
+//         </div>
+//         </div>
+//     </div>
+//     `;
+//   });
+//   return card;
+// } 
 
 /***********Aqui comienza la pantalla de Atletas***********/
 
@@ -215,7 +181,7 @@ function crearContenedorDeportista(deportista) {
 
         <div class="tarjetaDeporteReverso">
           <div id="nombreAtleta"><h4>${deportista.name}</h4></div>
-          <img class="imagenDeportistaReverso" src=${deportista.image} onError="src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU'">
+          <img class="imagenDeportistaReverso" src=${deportista.image} onError="src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU'>
           <img class="banderaPais" src=${bandera}>
           <p class="team">${deportista.team}<p> 
           <p class="sport"> ${deportista.sport}</p>
