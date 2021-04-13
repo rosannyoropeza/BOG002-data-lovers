@@ -1,4 +1,37 @@
-# Juegos Olímpicos de Río de Janeiro
+# **_DL JUEGOS OLIMPICOS RIO 2016_**
+
+## Descripción
+***DL Juegos Olimpicos Rio 2016*** Es una página web donde se muestran información referente a los juegos que fueron realizados en Rio de Janeiro en el año 2016 en Brasil.
+
+nace de la necesidad de mantener privada cierta información que  las usuarias de  **WhatsApp** desean compartir con sus contactos, sin que la red social pueda tener acceso a ella. 
+
+Para el diseño de la aplicación se realizaron varios prototipos, siendo el inicial uno en papel, en el que se plasmo como seria la interfaz del usuario, entendiendo que la interfaz fuera precisa y concisa con la información que se requiere para el uso de la misma, evitando así que el usuario cometa errores durante su interacción. Además le permita de forma intuitiva manejar la interfaz de una  manera sencilla y práctica.
+
+Para el prototipado final, se realizo mediante el  sitio web de diseño gráfico llamado ***Canva***, después de haber obtenido el feedback del prototipo inicial, se plasmaron las recomendaciones referente al diseño, en esta etapa básicamente se  emplearon códigos de colores para crear las combinaciones implementadas y se profundizo en las funcionalidades  para ser mas  agradable a la vista la interfaz.
+
+<img src="src/imagen/prototipo.jpg" width="300px"    height="300px">
+
+prototipo final
+
+<img src="src/imagen/secreto_de_amigas.jpg" width="300px"    height="200px">
+
+Producto final
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Juegos Olímpicos de Río de Janeiro, fueron un evento multideportivo internacional,
 celebrado en la ciudad de Río de Janeiro, Brasil. La elección de Río marcó la
