@@ -1,8 +1,4 @@
-// import { data } from './data.js';
-
-// import data from './data/lol/lol.js';
 import banderas from './data/banderas.js';
-// import slider from './slider'
 import data from "./data/athletes/atletasImg.js";
 import {
   listaDeportes,
@@ -12,13 +8,12 @@ import {
   filterAtletas,
   ordenar,
   atletasUnicos,
-  google,
 //   banderaPais,
 } from "./data.js";
 
 function principal() {
   pintarDeportes();
-  athletcWinner(data);
+  athleticsWinner(data);
 }
 principal();
 
@@ -51,7 +46,6 @@ if (buscarDeporte) {
     const nombreDeporte = document.getElementById("search").value;
     //Para crear los options del select
     const eventosFiltrados = filterData(data, nombreDeporte);
-    // console.log("soy evento",eventosFiltrados)
     let arrayEventos = listaEventos(eventosFiltrados);
     const selectorEventos = document.getElementById("select-eventos");
     selectorEventos.innerHTML = ""; // Vaciamos la lista para reiniciar el contenido y evitar duplicados
@@ -128,7 +122,7 @@ function crearContenedorAtleta(evento) {
 /***********Aqui comienza la pantalla de Atletas***********/
 
 //Funcion para pintar los Atletas
-function athletcWinner(ordenar) {
+function athleticsWinner(ordenar) {
   let unicos = atletasUnicos(ordenar);
   let searchAtletas = document.getElementById("search_atletas");
   if (searchAtletas !=null) {
@@ -151,18 +145,16 @@ function crearContenedorDeportista(deportista) {
     const card = `
     <div class="tarjetaDeporte">
       <div class="tarjetaDeporteInner">
-        
-      <div class="tarjetaDeporteFrontal">
-      <img class="imagenDeportista" src=${deportista.image} onError="src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU'">
-            <h3>${deportista.name}</h3>
-            <p>${deportista.sport} - ${deportista.noc}</p>
+        <div class="tarjetaDeporteFrontal">
+          <img class="imagenDeportista" src="${deportista.image}" onerror="this.onerror=null;this.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU';">
+          <h3>${deportista.name}</h3>
+          <p>${deportista.sport} - ${deportista.noc}</p>
         </div>
 
         <div class="tarjetaDeporteReverso">
           <div id="nombreAtleta"><h4>${deportista.name}</h4></div>
-          <img class="imagenDeportistaReverso" src=${deportista.image} onError="src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2dq65TmA2UkeniEcWvW_NI-7UqmNSf01xFQ&usqp=CAU'>
           <img class="banderaPais" src=${bandera}>
-          <p class="team">${deportista.team}<p> 
+          <p class="team">${deportista.team}</p> 
           <p class="sport"> ${deportista.sport}</p>
           <p class="medalla">Medal</p>
           <div class="resultadoMedallero" style="display: flex;justify-content:space-between;margin: 0px 28px 0px 28px">
@@ -173,8 +165,8 @@ function crearContenedorDeportista(deportista) {
             <img class="medallaPlata" src="./assets/logos/silver-medal.png">
             <img class="medallaBronce" src="./assets/logos/bronze-medal.png">
           </div>
-      
         </div>
+      </div>
     </div>
     `;
 
@@ -198,7 +190,7 @@ const searchButtonAthletes = document.getElementById("search-btn-atletas");
 if (searchButtonAthletes) {
   searchButtonAthletes.addEventListener("click", function () {
     //console.log(event.target.id)
-    athletcWinner(data);
+    athleticsWinner(data);
   });
 }
 
@@ -214,7 +206,7 @@ if (searchAthletes) {
 const filtroAz = document.getElementById("filtroAz");
 if (filtroAz) {
   filtroAz.addEventListener("change", () => {
-    athletcWinner(ordenar(data, filtroAz.value));
+    athleticsWinner(ordenar(data, filtroAz.value));
   });
 }
 
@@ -238,13 +230,12 @@ paisesMedallas.unshift(['Pais', 'Medallas'])
 
 
 // grafica de geoChart
-//f (typeof google !== 'undefined') {
-    
-    google.charts.load('current', {
-      'packages':['geochart'],
-      // Note: you will need to get a mapsApiKey for your project.
-      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-      'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+if (document.getElementById('regions_div')) {
+  google.charts.load('current', {
+    'packages':['geochart'],
+    // Note: you will need to get a mapsApiKey for your project.
+    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
   });
   google.charts.setOnLoadCallback(drawRegionsMap);
 
@@ -258,6 +249,4 @@ paisesMedallas.unshift(['Pais', 'Medallas'])
 
       chart.draw(data, options);
   }
-//}
-
-
+}
