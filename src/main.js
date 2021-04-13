@@ -18,7 +18,7 @@ import {
 
 function principal() {
   pintarDeportes();
-  athletcWinner(data);
+  athletcWinner(data)
 }
 principal();
 
