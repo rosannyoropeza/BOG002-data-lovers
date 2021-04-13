@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1618318551915" clover="3.2.0">
+  <project timestamp="1618318551916" name="All files">
+    <metrics statements="25" coveredstatements="25" conditionals="17" coveredconditionals="17" methods="14" coveredmethods="14" elements="56" coveredelements="56" complexity="0" loc="25" ncloc="25" packages="1" files="1" classes="1"/>
+    <file name="data.js" path="/Users/leidysanchez/Desktop/laboratoria/BOG002-data-lovers/src/data.js">
+      <metrics statements="25" coveredstatements="25" conditionals="17" coveredconditionals="17" methods="14" coveredmethods="14"/>
+      <line num="8" count="5" type="stmt"/>
+      <line num="9" count="5" type="stmt"/>
+      <line num="11" count="16" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="8" type="cond" truecount="4" falsecount="0"/>
+      <line num="13" count="3" type="stmt"/>
+      <line num="16" count="8" type="cond" truecount="2" falsecount="0"/>
+      <line num="17" count="7" type="stmt"/>
+      <line num="21" count="5" type="stmt"/>
+      <line num="31" count="4" type="stmt"/>
+      <line num="42" count="2" type="stmt"/>
+      <line num="43" count="2" type="stmt"/>
+      <line num="44" count="4" type="cond" truecount="2" falsecount="0"/>
+      <line num="45" count="3" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="58" count="3" type="stmt"/>
+      <line num="68" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="79" count="1" type="stmt"/>
+      <line num="81" count="1" type="stmt"/>
+      <line num="82" count="4" type="stmt"/>
+      <line num="84" count="1" type="stmt"/>
+      <line num="86" count="1" type="stmt"/>
+      <line num="96" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="97" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="98" count="1" type="stmt"/>
+      <line num="101" count="2" type="stmt"/>
+    </file>
+  </project>
+</coverage>
