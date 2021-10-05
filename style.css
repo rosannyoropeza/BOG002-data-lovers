@@ -1,35 +1,628 @@
-body{
-    font-family: 'Oswald', sans-serif;
+* {
     margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    text-decoration: none;
 }
+body{
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Oswald', sans-serif;
+    height: 100vh;
+    overflow-x: hidden;
+} 
 
-/* menu inicial */
+/*********** menu inicial******************/
 
 header{
     background: #63B330;
     display: block;
+    width: 100vw;
+    height: 85px;
 }
 
 header .menu{
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
+    
 }
 header .menu .logo{
-    width: 200px;
-    height: 200px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    margin-top: 5px;
 }
 
 header .menu div{
-    width: 200px;
-    height: 200px;
-    margin-top: 20px;
+    /* width: 100vw;
+    height: 100px;
+    margin-top: 10px; */
     display: flex;
     justify-content: space-evenly;
     text-align: center;
 }
 header .menu div a{
-    text-decoration: none;
     color: black;
 }
+header .menu div a img{
+    width: 50px;
+    height: 50px;
+}
+header .menu div:hover{
+    filter: invert(100%);
+}
+header .menu div a p{
+    font-size: 12px;
+    margin: 0;
+}
+
+.parrafoCita{
+    color: rgb(39, 38, 38);
+    /* background-color:#f0eeee; */
+    background-color:#dcf4ff;
+    border-radius: 8px;
+    margin: auto;
+    padding: 2px;
+}
+/* contenedor video y texto */
+.content{
+    
+}
+#contenido {
+    /*margin: 20px;*/
+    box-sizing: content-box;
+}
+#contenido .video{
+    width: 100%;
+    height: 20%;
+}
+#contenido h1{
+    text-align: center;
+}
+#contenido p{
+    font-size: 15px;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px;
+}
+
+/* slider */
+#container .slider{
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;/*PARA NO MOSTRAR LAS IMAGENES*/
+    box-shadow: 0 0 0 10px #fff,
+                0 15px 50px;
+    
+}
+#container_slider{
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+#slider{
+    display:flex;
+    width:800%;
+    height:400px;
+    /*animation: mymove 50s infinite;*/
+    margin-left:-100%;
+    transform: line;
+}
+
+/*@keyframes mymove {
+    0%{ margin-left:0%;}
+    10%{ margin-left:0%;}
+
+    12%{ margin-left: -100%;}
+    24%{ margin-left: -100%;}
+
+    26%{ margin-left: -200%;}
+    38%{ margin-left: -200%;}
+
+    40%{ margin-left:-300%;}
+    47%{ margin-left:-300%;}
+
+    50%{ margin-left: -400%;}
+    62%{ margin-left:-400%;}
+
+    64%{ margin-left: -500%;}
+    76%{ margin-left:-500%;}
+
+    78%{ margin-left: -600%;}
+    90%{ margin-left:-600%;}
+
+    92%{ margin-left: -700%;}
+    100%{ margin-left:-700%;}
+} */
+
+#slider section{
+    width: 100vw;
+
+}
+.slider_img{
+    display:block;
+    width:100%;
+    height: 100%;
+    object-fit: cover;/*PARA QUE LA IMAGEN NO SE DISTORCIONE*/
+}
+
+.slider_btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.7);
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: monospace;
+    text-align:center;
+    border-radius: 50%;
+    cursor: pointer; 
+    z-index: 9999;
+}
+
+.slider_btn:hover{
+    background: #fff;
+}
+
+.slider_btn_left{
+    left:10px;
+    float: left;
+}
+
+.slider_btn_right{
+    right: 10px;
+    float: right;
+}
+
+/* footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    background: #0068AF;
+    color: white;
+}
+footer .redes{
+    fill: white;
+    width: 48px;
+    height: 48px;
+    margin-top: 10px;
+}
+footer p{
+    font-size: 12px;
+    text-align: center;
+}
+
+
+/********** pantalla de deporte ************/
+main section{
+    width: 100%;
+    padding: 0px;
+    
+}
+main section h1{
+    text-align: center;
+    margin-top: 20px;
+}
+main section .search_deportes{
+    width: 90%;
+    /* background-color: #6d6a6a; */
+    display: flex;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+main section .search_deportes #search-btn{
+    border-radius:50%;
+    background-color: #e0dddd;
+    width: 28px;
+    height: 28px; 
+    position: relative;
+    padding:10px;
+    margin: auto;
+}
+
+main section .search_deportes #search{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #3a3939;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+}
+
+main section .search-evento{
+    display: flex;
+    width: 90%;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+main section .search-evento #select-eventos{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #616060;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+    cursor: pointer;
+}
+#logosDeportes{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-gap: 14px;
+}
+.tipoDeporte img{
+    width: 100%;
+}
+.tipoDeporte h3{
+    word-break: break-word;
+    text-align: center;
+}
+.hide, #logosDeportes.hide{
+    display: none;
+}
+
+.deporteCintaVerde .cintaVerde {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.cintaVerde {
+    background: #a8c52f;
+    line-height: 40px;
+    padding: 0 10px;
+    position: relative;
+}
+
+.deporteCintaVerde .cintaVerde .icono {
+    font-size: 36px;
+    display: inline-block;
+    color: #FFFFFF;
+    float: left;
+    line-height: 40px;
+}
+
+.deporteCintaVerde .cintaVerde .nombre {
+    color: #FFFFFF;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+@media screen and (min-width: 780px){ 
+    .content, 
+    #logosDeportes {
+        width: 1220px;
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    #contenido .video {
+        height: 450px;
+    }
+    div#listaAtletas{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (min-width: 1280px){
+    /* pantalla incial */
+    header .menu div a{
+        display: inline-flex;
+    }
+    header .menu div a p{
+        font-size: 10px;
+        margin: auto;
+        padding: 10px;
+    }
+    #contenido .video{
+        height: 600px;
+        margin-bottom: 10px;
+    }
+    #contenido h1{
+        font-size: 40px;
+    }
+    #contenido p{
+        font-size: 20px;
+    }
+    .parrafoCita{
+        width: 80%;
+    }
+    #logosDeportes{
+        grid-template-columns: repeat(6,1fr);
+    }
+
+    .tipoDeporte img{
+        width: 60%;
+    }
+
+    main section h1{
+        font-size: 35px;
+    }
+    main section .search_deportes,
+    main section .search-evento{
+        width: 60%;
+    }
+    /* pantalla atletas */
+    div#listaAtletas{
+        grid-template-columns: repeat(4,1fr);   
+        width: 1220px;
+        max-width: 80%;
+        margin: 20px auto;
+    }
+    main section div.search_atletas,
+    main section div.select_ordenar{
+        width: 60%; 
+    }
+}
+/******** pantalla de atleta ***********/
+main section .search_atletas{
+    width: 90%;
+    /* background-color: #6d6a6a; */
+    display: flex;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+main section .search_atletas #search-btn-atletas{
+    border-radius:50%;
+    background-color: #e0dddd;
+    width: 28px;
+    height: 28px; 
+    position: relative;
+    padding:10px;
+    margin: auto;
+}
+main section .search_atletas #search_atletas{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #3a3939;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+}
+/*Select Ordenar A-Z*/
+main section .select_ordenar{
+    width: 90%;
+    /* background-color: #6d6a6a; */
+    display: flex;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+main section .select_ordenar .filtroAz{
+    display: flex;
+    width: 90%;
+    border: 4px solid #e0dddd;
+    margin: auto;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+main section .select_ordenar #filtroAz{
+    position: relative;
+    width: 95%;
+    height: 55px;
+    color: #616060;
+    margin: auto;
+    padding: 10px 20px;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    font-size: 16px;
+    border-radius:5%;
+    cursor: pointer;
+}
+
+/************Aqui comienza la seccion Atletas***********/
+
+#listaAtletas{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(1,1fr);
+    grid-gap: 14px;
+}
+
+.tarjetaDeporte{
+    margin: 0 auto;
+    background-color: transparent;
+    width: 230px;
+    height: 270px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+.tarjetaDeporteInner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+  
+.tarjetaDeporte:hover .tarjetaDeporteInner{
+    transform: rotateY(180deg);
+}
+
+.tarjetaDeporteFrontal, .tarjetaDeporteReverso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  .tarjetaDeporteFrontal{
+    background-color: #bbb;
+    color: black;
+    text-align: center; 
+  }
+  
+  .tarjetaDeporteReverso {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(5,1fr);
+    /* grid-gap: 14px; */
+    text-align: center; 
+    background-color: #305c14;
+    color: white;
+    transform: rotateY(180deg);
+}
+  
+.deportistas img{
+    width: 100%;
+}
+
+.imagenDeportista{
+    width: 170px;
+    height:170px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.imagenDeportistaReverso{
+    width:80px;
+    height:80px;
+    border-radius:50%; 
+    object-fit: fill;
+    grid-row:1/span 2;
+    grid-column:4/span 2; 
+}
+
+.banderaPais{
+    width:80px;
+    height:80px;
+    /* border-radius:50%; */
+    object-fit: fill;
+    grid-row:2/span 1;
+    grid-column:1/span 3; 
+}
+
+.medallero{
+    grid-row:4/span 1;
+    grid-column:4/span 2; 
+} 
+
+.resultadoMedallero{
+    font-size: 10px;
+    grid-row:5/span 1;
+    grid-column:4/span 2; 
+}
+
+.medallaOro{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:3/span 1;  */
+}
+
+.medallaPlata{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:4/span 1;  */
+}
+
+.medallaBronce{
+    width: 20px;
+    height:20px; 
+    /* grid-row:4/span 1;
+    grid-column:5/span 1;  */
+}
+#nombreAtleta{
+    grid-row:1/span 1;
+    grid-column:1/span 3;
+
+}
+.team{
+    grid-row:3/span 1;
+    grid-column:1/span 3;
+}
+
+.medalla{
+    grid-row:3/span 1;
+    grid-column:4/span 2;
+}
+.sport{
+    grid-row:4/span 1;
+    grid-column:1/span 3;
+}
+
+
+div .deportista{
+    width: 230px;
+    height: 270px;
+    text-align: center;
+    position: relativa;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    overflow:hidden;
+    border-radius:16px;
+    box-shadow:0px 3px 18px 3px rgba(0,0,0,0.2);
+
+}
+
+div .deportista:hover{
+   transform: translateY(-15px);
+   box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); 
+}
+
+div .atletaFicha{
+    width: 230px;
+    height: 270px;
+    text-align: center;
+    position: relativa;
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+    overflow:hidden;
+    border-radius:16px;
+    box-shadow:0px 3px 18px 3px rgba(0,0,0,0.2);
+}
+
+/*********Aqui comienza pantalla estadistica*******/
+#chart_wrap {
+    position: relative;
+    padding-bottom: 100%;
+    height: 0;
+    overflow:hidden;
+}
+
+#piechart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:500px;
+}
+
